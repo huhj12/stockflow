@@ -65,3 +65,7 @@ npm run test:e2e
 - shared → API → web 프로덕션 빌드
 - Playwright Chromium E2E 1개: 시작 화면과 API 상태 응답
   브라우저 캡처로 시작 화면의 레이아웃을 확인했다. 검증 서버는 종료했으며 실행은 위의 npm run dev 명령을 사용한다.
+
+## 협업 및 리뷰
+
+개발은 dev에서 커밋하고 main 대상 PR로 검토합니다. GitHub Actions 자동 검사와 Codex AI 리뷰 설정은 [개발 흐름](docs/development-workflow.md)을 참고하세요.
