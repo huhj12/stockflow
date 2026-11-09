@@ -4,6 +4,7 @@
   background: #0b1220;
   color: #e8eef8;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -13,7 +14,7 @@ body {
 main {
   max-width: 960px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: clamp(32px, 8vw, 80px) clamp(12px, 4vw, 24px);
 }
 h1 {
   font-size: clamp(40px, 8vw, 72px);
@@ -26,24 +27,84 @@ p {
 .eyebrow {
   color: #68dfbe;
 }
-section {
-  margin-top: 48px;
-  padding: 28px;
+.stock-dashboard {
+  margin-top: 32px;
+  padding: clamp(12px, 4vw, 28px);
   border: 1px solid #2c3b53;
   border-radius: 16px;
   background: #111d30;
 }
-ul {
-  display: flex;
-  gap: 12px;
-  list-style: none;
-  padding: 0;
+.stock-dashboard h2 {
+  margin-top: 0;
 }
-li {
-  background: #20344c;
-  padding: 8px 14px;
+.stock-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 0.35fr);
+  gap: 16px;
+}
+.stock-filters label {
+  display: grid;
+  gap: 8px;
+}
+.stock-dashboard :is(input, select, button) {
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #637891;
+  border-radius: 8px;
+  background: #0b1220;
+  color: inherit;
+  font: inherit;
+}
+.stock-dashboard :is(input, select) {
+  width: 100%;
+}
+.stock-dashboard button {
+  cursor: pointer;
+}
+.stock-dashboard :focus-visible {
+  outline: 2px solid #68dfbe;
+  outline-offset: 2px;
+}
+.stock-error p {
+  color: #ffb6ae;
+}
+.stock-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #2c3b53;
   border-radius: 8px;
 }
-small {
-  color: #b2c0d6;
+.stock-table-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 480px;
+}
+.stock-table-scroll :is(th, td) {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #2c3b53;
+}
+.stock-table-scroll thead {
+  background: #20344c;
+}
+.stock-table-scroll tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.stock-code {
+  font-variant-numeric: tabular-nums;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (max-width: 520px) {
+  .stock-filters {
+    grid-template-columns: 1fr;
+  }
 }

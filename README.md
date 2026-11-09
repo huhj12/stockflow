@@ -1,6 +1,6 @@
 # StockFlow
 
-국내 주식(KOSPI, KOSDAQ) 모니터링 포트폴리오. 현재 DAY 2 개발 환경 구축 단계다.
+국내 주식(KOSPI, KOSDAQ) 모니터링 포트폴리오. DAY 3에서는 국내 주식 종목 목록과 검색을 제공한다.
 
 ## 환경
 
@@ -16,8 +16,8 @@ npm ci
 npm run dev
 ```
 
-웹: http://localhost:3000, API: http://localhost:4000/api/health
-기본 설정으로 바로 실행할 수 있다. `.env.example`은 설정 안내용이다. 웹의 사용자 설정은 `.env.local`에 작성한다. API는 현재 셸의 PORT, WEB_ORIGIN 환경변수를 읽으며 .env 파일을 자동 로딩하지 않는다.
+브라우저에서 http://localhost:3000 을 열면 종목 검색 화면이 표시된다. 목록 API는 http://localhost:4000/api/stocks 이다.
+기본 설정으로 바로 실행할 수 있다. `.env.example`은 설정 안내용이다. 웹에서 API 주소를 바꾸려면 `apps/web/.env.local`에 `NEXT_PUBLIC_API_BASE_URL`을 설정한다. 브라우저에서 접근 가능한 주소에 `/api`를 포함하며, 프로덕션에서는 빌드 전에 설정한다. API의 `WEB_ORIGIN`은 웹 페이지의 origin과 일치시킨다. API는 현재 셸의 PORT, WEB_ORIGIN 환경변수를 읽으며 .env 파일을 자동 로딩하지 않는다.
 
 ## 검증
 
@@ -36,14 +36,16 @@ E2E는 빌드된 웹과 API를 직접 시작한다. 먼저 3000·4000 포트의 
 ## 구조와 설계
 
 - apps/web: Next.js App Router, React, TypeScript. 서버 상태는 TanStack Query, 클라이언트 상태는 Zustand를 사용한다. Zustand 스토어는 기능 구현 시 추가한다.
-- apps/api: NestJS. DAY 2는 상태 확인 API만 제공한다.
+- apps/api: NestJS. 상태 확인, 종목 목록·검색, 종목 상세 API를 제공한다.
 - packages/shared: 프레임워크 독립 도메인 타입. 런타임 입력 검증은 각 API 기능에서 추가한다.
-- docs/requirements.md: MVP 범위와 API 초안.
+- docs/requirements.md: MVP 범위와 API 계약.
   단일 lockfile의 npm workspaces로 의존성을 관리한다. 초기 단계에서 별도 모노레포 빌드 도구를 도입하지 않고 공용 패키지를 먼저 컴파일한다. 공용 타입 변경 시 dev를 재시작하거나 shared 빌드를 다시 실행한다.
 
-## 개발 범위
+## DAY 3 기능과 데이터 범위
 
-DAY 2에는 실제 검색·차트·관심종목·WebSocket을 구현하지 않는다. 이후 Mock 데이터부터 기능별로 개발한다. PostgreSQL, Docker, GitHub Actions, Vercel 배포는 후속 단계다. NestJS의 장기 WebSocket 서버 배포 대상은 별도로 결정한다.
+홈 화면에서 KOSPI·KOSDAQ 테스트용 종목 30개를 조회할 수 있다. 검색은 종목명 또는 6자리 종목코드를 입력하고, 시장 필터를 함께 적용할 수 있다. 결과는 코드 오름차순이며 업종은 화면 개발을 위해 단순화한 분류다.
+
+API 상세 계약은 [요구사항](docs/requirements.md)을 참고한다. 목록 데이터에는 현재가나 실시간 시세가 포함되지 않는다. 종목 상세 화면·차트·WebSocket 모의 시세·관심종목은 후속 범위다.
 
 ## 의존성 보안 확인 (2026-11-05)
 

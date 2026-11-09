@@ -21,14 +21,21 @@
 - /watchlist: 관심종목
 - /portfolio: 후속 개발
 
-## API 계약 초안
+## 구현된 API
 
-- GET /api/stocks: 검색 및 목록
-- GET /api/stocks/:code: 기본 정보
-- GET /api/stocks/:code/quote: 현재 시세
+- GET /api/health: 서비스 상태 확인.
+- GET /api/stocks: 종목 목록과 검색. 선택 파라미터 query는 단일 문자열이며 최대 100 UTF-16 코드 단위까지 허용한다. 앞뒤 공백을 제거한 뒤 종목명(영문 대소문자 무시) 또는 코드의 일부와 비교한다. 공백뿐인 검색어는 전체를 대상으로 한다.
+- market은 선택 파라미터이며 KOSPI 또는 KOSDAQ만 허용한다. 검색어와 시장은 동시에 적용한다. 중복 query/market, 100자 초과 query, 유효하지 않은 market은 400을 반환한다.
+- 목록 응답은 종목코드 오름차순의 `{ items: Stock[], total: number }`이다. 결과가 없으면 `{ items: [], total: 0 }`이다.
+- GET /api/stocks/:code: 정확히 6개의 ASCII 숫자로 구성된 문자열 코드를 받아 Stock을 반환한다. 형식 오류는 400, 미등록 코드는 404다.
+
+모의 데이터는 테스트용으로 선정한 국내 주식 30종목의 코드, 이름, 시장과 단순화한 업종을 담는다. 거래소 전체 종목 목록이나 최신 상장 현황을 보장하지 않으며 현재가·실시간 시세를 포함하지 않는다.
+
+## 후속 API
+
+- GET /api/stocks/:code/quote: 시세
 - GET /api/stocks/:code/candles: 가격 차트
 - WS /ws/quotes: 모의 시세 구독
-  DAY 2 구현 API는 GET /api/health뿐이다. 쿼리·페이지네이션·캔들 간격·오류 응답은 기능 개발 시 확정한다.
 
 ## 모델
 
