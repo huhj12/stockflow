@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HealthModule } from './health/health.module';
-@Module({ imports: [HealthModule] })
+import { StocksModule } from './stocks/stocks.module';
+
+@Module({ imports: [HealthModule, StocksModule] })
 export class AppModule {}
