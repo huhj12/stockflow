@@ -31,16 +31,21 @@
 
 모의 데이터는 테스트용으로 선정한 국내 주식 30종목의 코드, 이름, 시장과 단순화한 업종을 담는다. 거래소 전체 종목 목록이나 최신 상장 현황을 보장하지 않으며 현재가·실시간 시세를 포함하지 않는다.
 
+- GET /api/stocks/:code/quote: StockQuote 정적 스냅샷. price는 마지막 캔들의 종가, previousClose는 직전 캔들의 종가다. change는 두 가격의 차이, changeRate는 change / previousClose × 100이다. volume과 timestamp는 마지막 캔들과 같고 sequence는 0이다.
+- GET /api/stocks/:code/candles: 시간 오름차순의 StockCandle 배열 30개. 일봉 기간은 고정이며 페이지네이션 파라미터는 없다.
+- 시세·캔들도 6자리 ASCII 종목코드 검증을 적용한다. 형식 오류는 400, 미등록 코드는 404다.
+
+Mock 일봉은 종목코드에 기반한 고정 합성 데이터다. UTC 자정 간격으로 주말을 포함한 달력 날짜 30개를 사용하며 거래소의 거래일이나 실제 시세와 무관하다. 같은 종목 요청은 동일한 결과를 반환한다.
+
 ## 후속 API
 
-- GET /api/stocks/:code/quote: 시세
-- GET /api/stocks/:code/candles: 가격 차트
 - WS /ws/quotes: 모의 시세 구독
 
 ## 모델
 
 - Stock: code(string), name, market(KOSPI|KOSDAQ), sector
 - StockQuote: code, price, previousClose, change, changeRate, volume, timestamp, sequence
+- StockCandle: timestamp, open, high, low, close, volume
 - Watchlist: stockCodes(string[]), updatedAt
 - Holding: stockCode, quantity, averagePrice
   종목 코드는 앞자리 0을 보존한다. 가격은 원, 거래량은 주, changeRate는 퍼센트(1 = 1%)다. timestamp와 updatedAt은 Unix epoch 밀리초다.
