@@ -108,3 +108,71 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+.stock-link {
+  color: #8debd2;
+  text-underline-offset: 3px;
+}
+
+.stock-detail > .stock-link {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.stock-detail :focus-visible {
+  outline: 2px solid #68dfbe;
+  outline-offset: 3px;
+}
+
+.stock-detail h1 {
+  font-size: clamp(32px, 7vw, 56px);
+}
+
+.stock-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.stock-metrics dt,
+.stock-chart figcaption {
+  color: #b2c0d6;
+}
+
+.stock-metrics dd {
+  margin: 4px 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stock-chart {
+  margin: 0;
+}
+
+.stock-chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.stock-chart text {
+  fill: #b2c0d6;
+  font-size: 14px;
+}
+
+.chart-grid {
+  stroke: #405571;
+}
+
+.chart-line {
+  fill: none;
+  stroke: #68dfbe;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.chart-dot {
+  fill: #68dfbe;
+}
