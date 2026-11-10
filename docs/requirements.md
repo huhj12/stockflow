@@ -17,7 +17,7 @@
 ## 화면
 
 - /: 시장 대시보드
-- /stocks/[code]: 종목 상세
+- /stocks/[code]: 종목 상세, Mock 현재가, 일봉 캔들·거래량 차트
 - /watchlist: 관심종목
 - /portfolio: 후속 개발
 
