@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import type { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import type { Stock } from '@stockflow/shared';
+import type { Stock, StockCandle, StockQuote } from '@stockflow/shared';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { AppModule } from '../app.module';
 
@@ -109,4 +109,61 @@ describe('stocks HTTP endpoints', () => {
       expect((await fetch(`${baseUrl}/${code}`)).status).toBe(400);
     },
   );
+
+  it.each(['quote', 'candles'])(
+    'validates the code on the %s route',
+    async (route) => {
+      for (const code of ['5930', 'ABCDEF', '005930%0A']) {
+        expect((await fetch(baseUrl + '/' + code + '/' + route)).status).toBe(
+          400,
+        );
+      }
+      expect((await fetch(baseUrl + '/999999/' + route)).status).toBe(404);
+    },
+  );
+
+  it('returns a stable quote consistent with its daily candle history', async () => {
+    const quoteUrl = baseUrl + '/005930/quote';
+    const candlesUrl = baseUrl + '/005930/candles';
+    const [quoteResponse, candlesResponse] = await Promise.all([
+      fetch(quoteUrl),
+      fetch(candlesUrl),
+    ]);
+    expect(quoteResponse.status).toBe(200);
+    expect(candlesResponse.status).toBe(200);
+    const quote = (await quoteResponse.json()) as StockQuote;
+    const candles = (await candlesResponse.json()) as StockCandle[];
+    expect(candles).toHaveLength(30);
+    expect(quote.code).toBe('005930');
+    expect(quote.sequence).toBe(0);
+    expect(Number.isSafeInteger(quote.timestamp)).toBe(true);
+    expect(quote.timestamp).toBeGreaterThan(1_000_000_000_000);
+    expect(quote.previousClose).toBeGreaterThan(0);
+    expect(quote.change).toBe(quote.price - quote.previousClose);
+    expect(quote.changeRate).toBeCloseTo(
+      (quote.change / quote.previousClose) * 100,
+    );
+    expect(quote.price).toBe(candles[29].close);
+    expect(quote.volume).toBe(candles[29].volume);
+    expect(quote.timestamp).toBe(candles[29].timestamp);
+    expect(quote.previousClose).toBe(candles[28].close);
+    for (const [index, candle] of candles.entries()) {
+      expect(Number.isSafeInteger(candle.timestamp)).toBe(true);
+      if (index > 0)
+        expect(candle.timestamp - candles[index - 1].timestamp).toBe(
+          86_400_000,
+        );
+      expect(candle.high).toBeGreaterThanOrEqual(
+        Math.max(candle.open, candle.close),
+      );
+      expect(candle.low).toBeLessThanOrEqual(
+        Math.min(candle.open, candle.close),
+      );
+      expect(candle.low).toBeGreaterThan(0);
+      expect(Number.isInteger(candle.volume)).toBe(true);
+      expect(candle.volume).toBeGreaterThanOrEqual(0);
+    }
+    expect(await (await fetch(quoteUrl)).json()).toEqual(quote);
+    expect(await (await fetch(candlesUrl)).json()).toEqual(candles);
+  });
 });

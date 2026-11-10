@@ -29,12 +29,25 @@ export class StocksController {
     return this.stocks.list(query?.trim() ?? '', market);
   }
 
+  @Get(':code/quote')
+  quote(@Param('code') code: string) {
+    return this.stocks.getPrices(this.validCode(code)).quote;
+  }
+
+  @Get(':code/candles')
+  candles(@Param('code') code: string) {
+    return this.stocks.getPrices(this.validCode(code)).candles;
+  }
+
   @Get(':code')
   detail(@Param('code') code: string) {
+    return this.stocks.findByCode(this.validCode(code));
+  }
+
+  private validCode(code: string) {
     if (code.length !== 6 || !/^[0-9]{6}$/.test(code)) {
       throw new BadRequestException('code must contain exactly six digits');
     }
-
-    return this.stocks.findByCode(code);
+    return code;
   }
 }

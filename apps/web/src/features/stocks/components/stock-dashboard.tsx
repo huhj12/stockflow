@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query';
 import type { Market } from '@stockflow/shared';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { fetchStocks } from '../api/fetch-stocks';
 
@@ -99,7 +100,11 @@ export function StockDashboard() {
               {stocks.data.items.map((stock) => (
                 <tr key={stock.code}>
                   <td className="stock-code">{stock.code}</td>
-                  <th scope="row">{stock.name}</th>
+                  <th scope="row">
+                    <Link className="stock-link" href={'/stocks/' + stock.code}>
+                      {stock.name}
+                    </Link>
+                  </th>
                   <td>{stock.market}</td>
                   <td>{stock.sector}</td>
                 </tr>
