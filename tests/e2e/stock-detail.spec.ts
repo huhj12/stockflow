@@ -1,5 +1,12 @@
 import { expect, test } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  // These scenarios assert the REST snapshot. The live feed has its own suite.
+  await page.routeWebSocket('**/ws/quotes?*', (socket) =>
+    socket.close({ code: 1008 }),
+  );
+});
+
 test('opens a searched stock by keyboard, shows mock prices and returns to the list', async ({
   page,
 }) => {
