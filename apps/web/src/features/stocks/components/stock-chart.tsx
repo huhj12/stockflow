@@ -14,7 +14,13 @@ type ChartSeries = {
   volume: ISeriesApi<'Histogram'>;
 };
 
-function CandleCanvas({ data }: { data: ChartData }) {
+function CandleCanvas({
+  data,
+  liveCandle,
+}: {
+  data: ChartData;
+  liveCandle?: StockCandle;
+}) {
   const host = useRef<HTMLDivElement>(null);
   const descriptionId = useId();
   const [series, setSeries] = useState<ChartSeries>();
@@ -90,6 +96,22 @@ function CandleCanvas({ data }: { data: ChartData }) {
     series.chart.timeScale().fitContent();
   }, [data, series]);
 
+  const live = useMemo(
+    () =>
+      liveCandle && liveCandle.timestamp === data.latest?.timestamp
+        ? toChartCandles([liveCandle])
+        : undefined,
+    [data.latest?.timestamp, liveCandle],
+  );
+
+  useEffect(() => {
+    if (!series || !live) return;
+    series.price.update(live.prices[0]);
+    series.volume.update(live.volumes[0]);
+  }, [data, live, series]);
+
+  const latest = live?.latest ?? data.latest;
+
   return (
     <>
       {failed ? <p role="alert">가격 차트를 초기화하지 못했습니다.</p> : null}
@@ -105,10 +127,10 @@ function CandleCanvas({ data }: { data: ChartData }) {
         aria-busy={!failed && !series}
         hidden={failed}
       />
-      {data.latest ? (
+      {latest ? (
         <p id={descriptionId}>
-          {data.latest.time} 마지막 모의 종가 {won.format(data.latest.close)}원
-          · 거래량 {won.format(data.latest.volume)}주
+          {latest.time} 마지막 모의 종가 {won.format(latest.close)}원 · 거래량{' '}
+          {won.format(latest.volume)}주
         </p>
       ) : null}
     </>
@@ -117,9 +139,11 @@ function CandleCanvas({ data }: { data: ChartData }) {
 
 export function StockChart({
   candles,
+  liveCandle,
   code,
 }: {
   candles: StockCandle[];
+  liveCandle?: StockCandle;
   code: string;
 }) {
   const data = useMemo(() => {
@@ -137,7 +161,7 @@ export function StockChart({
       ) : data.prices.length === 0 ? (
         <p>표시할 가격 데이터가 없습니다.</p>
       ) : (
-        <CandleCanvas key={code} data={data} />
+        <CandleCanvas key={code} data={data} liveCandle={liveCandle} />
       )}
       <figcaption>
         Mock 일봉 · 가격 원(KRW) · 거래량 주 · 상승 빨강 / 하락 파랑
