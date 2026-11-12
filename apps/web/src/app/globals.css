@@ -151,28 +151,8 @@ p {
   margin: 0;
 }
 
-.stock-chart svg {
-  display: block;
+.stock-chart-canvas {
   width: 100%;
-  height: auto;
-}
-
-.stock-chart text {
-  fill: #b2c0d6;
-  font-size: 14px;
-}
-
-.chart-grid {
-  stroke: #405571;
-}
-
-.chart-line {
-  fill: none;
-  stroke: #68dfbe;
-  stroke-width: 2.5;
-  stroke-linejoin: round;
-}
-
-.chart-dot {
-  fill: #68dfbe;
+  height: clamp(260px, 55vw, 420px);
+  min-width: 0;
 }

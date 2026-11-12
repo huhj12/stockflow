@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { fetchStockDetail } from '../api/fetch-stock-detail';
 import { StockApiError } from '../api/stock-api';
-import { StockPriceChart } from './stock-price-chart';
+import { StockChart } from './stock-chart';
 
 const number = new Intl.NumberFormat('ko-KR');
 const signed = new Intl.NumberFormat('ko-KR', { signDisplay: 'exceptZero' });
@@ -80,7 +80,7 @@ export function StockDetail({ code }: { code: string }) {
           </section>
           <section className="stock-dashboard" aria-labelledby="chart-heading">
             <h2 id="chart-heading">가격 차트</h2>
-            <StockPriceChart candles={detail.data.candles} />
+            <StockChart code={code} candles={detail.data.candles} />
           </section>
         </>
       )}
