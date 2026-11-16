@@ -4,6 +4,10 @@ import { useQuery } from '@tanstack/react-query';
 import type { Market } from '@stockflow/shared';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import {
+  WatchlistButton,
+  WatchlistStorageNotice,
+} from '../../watchlist/watchlist-button';
 import { fetchStocks } from '../api/fetch-stocks';
 
 export function StockDashboard() {
@@ -33,6 +37,7 @@ export function StockDashboard() {
   return (
     <section className="stock-dashboard" aria-labelledby="stock-heading">
       <h2 id="stock-heading">국내 주식 종목 검색</h2>
+      <WatchlistStorageNotice />
       <div className="stock-filters" role="group" aria-label="종목 검색 조건">
         <label htmlFor="stock-query">
           종목명 또는 종목코드
@@ -62,6 +67,11 @@ export function StockDashboard() {
         </label>
       </div>
 
+      <p>
+        <Link className="stock-link" href="/watchlist">
+          관심종목 보기
+        </Link>
+      </p>
       <p role="status">
         {loading
           ? '종목을 불러오는 중입니다.'
@@ -94,6 +104,7 @@ export function StockDashboard() {
                 <th scope="col">종목명</th>
                 <th scope="col">시장</th>
                 <th scope="col">업종</th>
+                <th scope="col">관심종목</th>
               </tr>
             </thead>
             <tbody>
@@ -107,6 +118,9 @@ export function StockDashboard() {
                   </th>
                   <td>{stock.market}</td>
                   <td>{stock.sector}</td>
+                  <td>
+                    <WatchlistButton code={stock.code} name={stock.name} />
+                  </td>
                 </tr>
               ))}
             </tbody>
