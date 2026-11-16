@@ -1,6 +1,6 @@
 'use client';
 
-import { useLoadWatchlist, useWatchlist } from './watchlist-store';
+import { useWatchlist } from './watchlist-store';
 
 export function WatchlistButton({
   code,
@@ -9,7 +9,6 @@ export function WatchlistButton({
   code: string;
   name: string;
 }) {
-  useLoadWatchlist();
   const ready = useWatchlist((state) => state.ready);
   const saved = useWatchlist((state) => state.stockCodes.includes(code));
   const toggle = useWatchlist((state) => state.toggle);
@@ -21,7 +20,7 @@ export function WatchlistButton({
       aria-label={name + ' 관심종목'}
       aria-pressed={saved}
       disabled={!ready}
-      onClick={() => toggle(code)}
+      onClick={() => void toggle(code)}
     >
       {saved ? '관심 해제' : '관심 등록'}
     </button>

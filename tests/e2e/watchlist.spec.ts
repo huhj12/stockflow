@@ -42,3 +42,34 @@ test('recovers from malformed browser storage', async ({ page }) => {
     '등록된 관심종목이 없습니다.',
   );
 });
+
+test('keeps both additions when two tabs save concurrently', async ({
+  page,
+  context,
+}) => {
+  const second = await context.newPage();
+  await Promise.all([page.goto('/'), second.goto('/')]);
+  const samsung = { name: '삼성전자 관심종목' };
+  const hynix = { name: 'SK하이닉스 관심종목' };
+  await Promise.all([
+    page.getByRole('button', samsung).click(),
+    second.getByRole('button', hynix).click(),
+  ]);
+  await expect(page.getByRole('button', hynix)).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await expect(second.getByRole('button', samsung)).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await second.reload();
+  await expect(second.getByRole('button', samsung)).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  await expect(second.getByRole('button', hynix)).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+});

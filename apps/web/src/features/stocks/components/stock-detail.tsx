@@ -6,6 +6,7 @@ import {
   WatchlistButton,
   WatchlistStorageNotice,
 } from '../../watchlist/watchlist-button';
+import { useLoadWatchlist } from '../../watchlist/watchlist-store';
 import { fetchStockDetail } from '../api/fetch-stock-detail';
 import { StockApiError } from '../api/stock-api';
 import { useLiveQuote } from '../hooks/use-live-quote';
@@ -20,6 +21,7 @@ const rate = new Intl.NumberFormat('ko-KR', {
 });
 
 export function StockDetail({ code }: { code: string }) {
+  useLoadWatchlist();
   const valid = code.length === 6 && /^[0-9]{6}$/.test(code);
   const detail = useQuery({
     queryKey: ['stock-detail', code],

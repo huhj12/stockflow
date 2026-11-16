@@ -8,9 +8,11 @@ import {
   WatchlistButton,
   WatchlistStorageNotice,
 } from '../../watchlist/watchlist-button';
+import { useLoadWatchlist } from '../../watchlist/watchlist-store';
 import { fetchStocks } from '../api/fetch-stocks';
 
 export function StockDashboard() {
+  useLoadWatchlist();
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const [market, setMarket] = useState<Market | ''>('');
