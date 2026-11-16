@@ -2,6 +2,11 @@
 
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
+import {
+  WatchlistButton,
+  WatchlistStorageNotice,
+} from '../../watchlist/watchlist-button';
+import { useLoadWatchlist } from '../../watchlist/watchlist-store';
 import { fetchStockDetail } from '../api/fetch-stock-detail';
 import { StockApiError } from '../api/stock-api';
 import { useLiveQuote } from '../hooks/use-live-quote';
@@ -16,6 +21,7 @@ const rate = new Intl.NumberFormat('ko-KR', {
 });
 
 export function StockDetail({ code }: { code: string }) {
+  useLoadWatchlist();
   const valid = code.length === 6 && /^[0-9]{6}$/.test(code);
   const detail = useQuery({
     queryKey: ['stock-detail', code],
@@ -65,6 +71,13 @@ export function StockDetail({ code }: { code: string }) {
             </p>
             <p>
               테스트용 모의 시세입니다. 실제 거래소 시세는 제공하지 않습니다.
+            </p>
+            <WatchlistButton code={code} name={detail.data.stock.name} />
+            <WatchlistStorageNotice />
+            <p>
+              <Link className="stock-link" href="/watchlist">
+                관심종목 보기
+              </Link>
             </p>
           </header>
           <section className="stock-dashboard" aria-labelledby="quote-title">
