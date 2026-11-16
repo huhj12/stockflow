@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { fetchStockDetail } from '../api/fetch-stock-detail';
 import { StockApiError } from '../api/stock-api';
+import { useLiveQuote } from '../hooks/use-live-quote';
 import { StockChart } from './stock-chart';
 
 const number = new Intl.NumberFormat('ko-KR');
@@ -23,6 +24,14 @@ export function StockDetail({ code }: { code: string }) {
     retry: false,
     staleTime: 60_000,
   });
+
+  const live = useLiveQuote(code, detail.isSuccess);
+  const quote = live?.message?.quote ?? detail.data?.quote;
+  const liveLabel = {
+    live: '모의 시세 연결됨',
+    reconnecting: '모의 시세 재연결 중',
+    offline: '모의 시세 연결 종료',
+  } as const;
 
   return (
     <main className="stock-detail">
@@ -45,7 +54,7 @@ export function StockDetail({ code }: { code: string }) {
             </button>
           </section>
         )
-      ) : (
+      ) : quote ? (
         <>
           <header>
             <p className="eyebrow">국내 주식 · Mock 시세</p>
@@ -60,30 +69,37 @@ export function StockDetail({ code }: { code: string }) {
           </header>
           <section className="stock-dashboard" aria-labelledby="quote-title">
             <h2 id="quote-title">Mock 현재가</h2>
+            <p role="status">
+              {live ? liveLabel[live.status] : '모의 시세 연결 중'}
+            </p>
             <dl className="stock-metrics">
               <div>
                 <dt>현재가</dt>
-                <dd>{number.format(detail.data.quote.price)}원</dd>
+                <dd>{number.format(quote.price)}원</dd>
               </div>
               <div>
                 <dt>전일 대비</dt>
                 <dd>
-                  {signed.format(detail.data.quote.change)}원 (
-                  {rate.format(detail.data.quote.changeRate)}%)
+                  {signed.format(quote.change)}원 (
+                  {rate.format(quote.changeRate)}%)
                 </dd>
               </div>
               <div>
                 <dt>거래량</dt>
-                <dd>{number.format(detail.data.quote.volume)}주</dd>
+                <dd>{number.format(quote.volume)}주</dd>
               </div>
             </dl>
           </section>
           <section className="stock-dashboard" aria-labelledby="chart-heading">
             <h2 id="chart-heading">가격 차트</h2>
-            <StockChart code={code} candles={detail.data.candles} />
+            <StockChart
+              code={code}
+              candles={detail.data.candles}
+              liveCandle={live?.message?.candle}
+            />
           </section>
         </>
-      )}
+      ) : null}
     </main>
   );
 }

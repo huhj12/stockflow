@@ -37,7 +37,7 @@ export function toChartCandles(input: readonly StockCandle[]) {
       if (days.has(time)) throw new Error(`Duplicate candle day: ${time}`);
       days.add(time);
 
-      return { time, open, high, low, close, volume };
+      return { time, timestamp, open, high, low, close, volume };
     })
     .sort((a, b) => a.time.localeCompare(b.time));
 
