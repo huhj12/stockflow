@@ -198,3 +198,11 @@ button.watchlist-button:disabled {
 .watchlist-items p {
   margin: 4px 0 0;
 }
+
+.stock-table-scroll :is(th, td) {
+  white-space: nowrap;
+}
+
+.stock-sort-button {
+  white-space: nowrap;
+}

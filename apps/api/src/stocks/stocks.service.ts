@@ -28,7 +28,13 @@ export class StocksService {
           stock.name.toLowerCase().includes(keyword)),
     );
 
-    return { items, total: items.length };
+    return {
+      items: items.map((stock) => {
+        const { price, changeRate, volume } = this.getPrices(stock.code).quote;
+        return { ...stock, price, changeRate, volume };
+      }),
+      total: items.length,
+    };
   }
 
   findByCode(code: string) {

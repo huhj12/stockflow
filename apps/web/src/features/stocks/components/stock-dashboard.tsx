@@ -11,11 +11,27 @@ import {
 import { useLoadWatchlist } from '../../watchlist/watchlist-store';
 import { fetchStocks } from '../api/fetch-stocks';
 
+const columns = [
+  ['price', '가격'],
+  ['changeRate', '등락률'],
+  ['volume', '거래량'],
+] as const;
+
+type SortKey = (typeof columns)[number][0];
+type Sort = { key: SortKey; direction: 'ascending' | 'descending' };
+const integers = new Intl.NumberFormat('ko-KR');
+const percentage = new Intl.NumberFormat('ko-KR', {
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  signDisplay: 'exceptZero',
+});
+
 export function StockDashboard() {
   useLoadWatchlist();
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const [market, setMarket] = useState<Market | ''>('');
+  const [sort, setSort] = useState<Sort>();
   const keyword = input.trim();
 
   useEffect(() => {
@@ -31,6 +47,27 @@ export function StockDashboard() {
     staleTime: 60_000,
     retry: false,
   });
+  const rows = stocks.data?.items ?? [];
+  const sortedRows = sort
+    ? rows.toSorted((a, b) => {
+        const difference = a[sort.key] - b[sort.key];
+        return (
+          (sort.direction === 'ascending' ? difference : -difference) ||
+          a.code.localeCompare(b.code)
+        );
+      })
+    : rows;
+
+  function sortBy(key: SortKey) {
+    setSort((current) => ({
+      key,
+      direction:
+        current?.key === key && current.direction === 'descending'
+          ? 'ascending'
+          : 'descending',
+    }));
+  }
+
   const loading =
     waitingForInput ||
     stocks.isPending ||
@@ -106,11 +143,33 @@ export function StockDashboard() {
                 <th scope="col">종목명</th>
                 <th scope="col">시장</th>
                 <th scope="col">업종</th>
+                {columns.map(([key, label]) => (
+                  <th
+                    key={key}
+                    scope="col"
+                    aria-sort={sort?.key === key ? sort.direction : undefined}
+                  >
+                    <button
+                      type="button"
+                      className="stock-sort-button"
+                      onClick={() => sortBy(key)}
+                    >
+                      {label}{' '}
+                      <span aria-hidden="true">
+                        {sort?.key !== key
+                          ? '↕'
+                          : sort.direction === 'ascending'
+                            ? '↑'
+                            : '↓'}
+                      </span>
+                    </button>
+                  </th>
+                ))}
                 <th scope="col">관심종목</th>
               </tr>
             </thead>
             <tbody>
-              {stocks.data.items.map((stock) => (
+              {sortedRows.map((stock) => (
                 <tr key={stock.code}>
                   <td className="stock-code">{stock.code}</td>
                   <th scope="row">
@@ -120,6 +179,15 @@ export function StockDashboard() {
                   </th>
                   <td>{stock.market}</td>
                   <td>{stock.sector}</td>
+                  <td className="stock-code">
+                    {integers.format(stock.price)}원
+                  </td>
+                  <td className="stock-code">
+                    {percentage.format(stock.changeRate)}%
+                  </td>
+                  <td className="stock-code">
+                    {integers.format(stock.volume)}주
+                  </td>
                   <td>
                     <WatchlistButton code={stock.code} name={stock.name} />
                   </td>
