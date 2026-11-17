@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import type { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import type { Stock, StockCandle, StockQuote } from '@stockflow/shared';
+import type { StockCandle, StockListItem, StockQuote } from '@stockflow/shared';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { AppModule } from '../app.module';
 
@@ -25,7 +25,7 @@ describe('stocks HTTP endpoints', () => {
     url.search = new URLSearchParams(params).toString();
     const response = await fetch(url);
     expect(response.status).toBe(200);
-    return (await response.json()) as { items: Stock[]; total: number };
+    return (await response.json()) as { items: StockListItem[]; total: number };
   }
 
   it('returns 30 unique six-digit codes sorted in ascending order', async () => {
@@ -41,6 +41,19 @@ describe('stocks HTTP endpoints', () => {
       ),
     ).toBe(true);
     expect(codes).toContain('000660');
+  });
+
+  it('includes the same sortable price, change rate and volume as the quote endpoint', async () => {
+    const { items } = await list({ query: '005930' });
+    const response = await fetch(baseUrl + '/005930/quote');
+    expect(response.status).toBe(200);
+    const { price, changeRate, volume } = (await response.json()) as StockQuote;
+    expect(items[0]).toMatchObject({
+      code: '005930',
+      price,
+      changeRate,
+      volume,
+    });
   });
 
   it('matches partial names after trimming and ignores Latin letter case', async () => {

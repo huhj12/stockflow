@@ -1,9 +1,9 @@
-import type { Market, Stock } from '@stockflow/shared';
+import type { Market, StockListItem } from '@stockflow/shared';
 
 import { readStockJson, stockApiUrl } from './stock-api';
 
 interface StockList {
-  items: Stock[];
+  items: StockListItem[];
   total: number;
 }
 
