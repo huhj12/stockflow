@@ -31,3 +31,5 @@ Node.js 24.x에서 README의 전체 품질 검사를 실행한다. E2E 전에 np
 Windows, Node.js 24.22.1에서 format:check, lint, typecheck, test, build, test:e2e를 모두 통과했다. Vitest는 3개 파일 34개 테스트, Playwright Chromium은 23개 테스트(기존 19개와 신규 4개)를 통과했다. 신규 모바일 흐름에서는 pageerror가 없었다. 이번 검증에서 제품 코드 수정이 필요한 오류는 재현되지 않아 테스트와 문서만 변경했다.
 
 Vitest에는 기존 CommonJS 설정의 향후 Vite native config loader 관련 안내가 출력되었다. 검사 실패는 아니며 이번 범위에서 설정을 변경하지 않았다. 원격 CI와 Codex 리뷰 상태는 PR에서 별도로 확인한다.
+
+첫 원격 CI에서는 신규 모바일 시나리오가 실패했다. 진단 스냅샷은 관심종목이 아닌 상세 화면이었다. Next.js 클라이언트 이동 완료 전에 테스트가 reload를 실행한 순서 경쟁으로, 관심종목 URL과 저장 완료를 확인한 후 새로고침하도록 테스트를 수정했다. 임의 대기 시간이나 재시도 횟수를 늘리지 않았다.

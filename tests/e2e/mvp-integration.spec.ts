@@ -23,7 +23,12 @@ test('completes the mobile search, live detail and saved watchlist journey', asy
       .first(),
   ).toBeVisible();
   await page.getByRole('button', { name: '삼성전자 관심종목' }).click();
+  await expect(
+    page.getByRole('button', { name: '삼성전자 관심종목' }),
+  ).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('link', { name: '관심종목 보기' }).click();
+  // Next client navigation must finish before a hard reload.
+  await expect(page).toHaveURL(/\/watchlist$/);
   await page.reload();
   await expect(
     page.getByRole('button', { name: '삼성전자 관심종목' }),
