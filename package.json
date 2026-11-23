@@ -17,7 +17,9 @@
     "format:check": "prettier --check .",
     "typecheck": "npm run build -w @stockflow/shared && npm run typecheck --workspaces --if-present",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "bench:build": "node scripts/build-performance.mjs",
+    "bench:stocks": "node scripts/benchmark-stock-search.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
