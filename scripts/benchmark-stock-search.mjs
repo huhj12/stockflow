@@ -335,7 +335,7 @@ try {
         'git',
         [
           '-c',
-          'safe.directory=C:/developer/stockflow',
+          `safe.directory=${root.replaceAll('\\', '/').replace(/\/$/, '')}`,
           'status',
           '--porcelain',
           '--untracked-files=no',

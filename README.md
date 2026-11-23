@@ -99,3 +99,9 @@ npm run test:e2e
 전체 검증은 위의 품질 명령과 `npm run test:e2e`를 사용한다. 통합 시나리오만 실행하려면 프로덕션 빌드 후 `npm run test:e2e -- tests/e2e/mvp-integration.spec.ts`를 실행한다. 테스트가 3000·4000 포트에서 웹과 API를 시작하므로 기존 개발 서버는 먼저 종료한다.
 
 검증 범위와 후속 작업은 [DAY 8 검증 기록](docs/day8-verification.md)을 참고한다. 현재 E2E는 Chromium이며 모바일 크기 검증이 실제 iOS Safari 호환성을 보장하지는 않는다.
+
+## DAY 11 성능 기준 측정
+
+측정용 production profiling 빌드에서 실제 검색과 합성 30·300·3,000행의 검색·정렬·관심종목을 반복 측정한다. `npm run bench:build` 후 `npm run bench:stocks`를 실행하며 Chromium이 필요하다. 3100·4100 포트를 사용하고 기존 Docker 서버는 유지한다. 일반 빌드로 돌아오려면 `npm run build`를 실행한다.
+
+[측정 방법·결과·한계](docs/performance/day11-baseline.md)와 [원본 데이터](docs/performance/day11-baseline.json)를 보관한다. 최종 7회 측정에서 실제 검색 p50은 308.7ms(275ms debounce 포함), 합성 3,000행 기본 CPU 정렬 p50은 732.2ms였다. 운영 SLA나 성능 개선 수치를 뜻하지 않으며 가상 스크롤 도입 전 기준이다.

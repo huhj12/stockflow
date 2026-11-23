@@ -72,3 +72,10 @@ DAY 6는 브라우저의 localStorage에 종목코드 배열과 갱신 시각을
 - 관심종목 목록 API 실패 시 저장한 코드를 유지하며 재시도로 종목명을 복구한다.
 - 상세 화면을 나가면 진행 중인 WebSocket뿐 아니라 대기 중인 재연결도 취소한다.
 - DAY 8은 기존 API 계약을 유지하고 신규 패키지나 실제 시세 연동을 추가하지 않는다.
+
+## DAY 11 성능 측정 기준
+
+- 기존 30종목 Mock API 계약은 유지한다. 대량 목록은 측정 브라우저의 응답 주입으로만 생성한다.
+- React Profiler는 NEXT_PUBLIC_ENABLE_PROFILING=1인 별도 production --profile 빌드에서만 활성화한다. 일반 빌드는 Profiler 경계를 마운트하지 않는다.
+- 이벤트→결과 프레임, API 왕복+JSON 파싱, React actualDuration 합산, DOM 수, 긴 작업을 구분한다. 샘플·환경·원본 데이터와 통계의 한계를 함께 기록한다.
+- 계측 기준과 결과는 docs/performance/day11-baseline.md를 따른다. 이번 DAY에는 최적화를 추가하지 않으며 후속 가상 스크롤 도입 여부와 비교 기준으로 사용한다.
