@@ -167,3 +167,37 @@ test('handles mobile resizing, larger text and market changes', async ({
     '1501',
   );
 });
+
+test('reveals keyboard focus horizontally and lets Tab leave the list', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 375, height: 800 });
+  await region(page).evaluate((element) => {
+    const after = document.createElement('button');
+    after.textContent = '목록 다음';
+    element.after(after);
+    element.scrollLeft = element.scrollWidth;
+  });
+  await region(page).focus();
+  await region(page).press('End');
+  const last = page.getByRole('link', { name: '가상종목 2999', exact: true });
+  await expect(last).toBeFocused();
+  await expect(last).toBeInViewport();
+  await last.press('Tab');
+  const favorite = page.getByRole('button', {
+    name: '가상종목 2999 관심종목',
+    exact: true,
+  });
+  await expect(favorite).toBeFocused();
+  await expect(favorite).toBeInViewport();
+  await favorite.press('Tab');
+  const after = page.getByRole('button', { name: '목록 다음', exact: true });
+  await expect(after).toBeFocused();
+  await after.press('Shift+Tab');
+  await expect(favorite).toBeFocused();
+  await favorite.press('Shift+Tab');
+  await last.press('Home');
+  const first = page.getByRole('link', { name: '삼성전자', exact: true });
+  await expect(first).toBeFocused();
+  await expect(first).toBeInViewport();
+});

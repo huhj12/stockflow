@@ -115,6 +115,8 @@ export function StockTable({
     if (control) {
       pendingFocus.current = null;
       control.focus({ preventScroll: true });
+      // The virtualizer handles vertical position; native scrolling also reveals the control horizontally.
+      control.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     }
   });
 
