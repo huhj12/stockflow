@@ -3,35 +3,19 @@
 import { useQuery } from '@tanstack/react-query';
 import type { Market } from '@stockflow/shared';
 import Link from 'next/link';
+import { StockTable, type StockSort } from './stock-table';
 import { useEffect, useState } from 'react';
-import {
-  WatchlistButton,
-  WatchlistStorageNotice,
-} from '../../watchlist/watchlist-button';
+import { WatchlistStorageNotice } from '../../watchlist/watchlist-button';
 import { useLoadWatchlist } from '../../watchlist/watchlist-store';
 import { fetchStocks } from '../api/fetch-stocks';
-
-const columns = [
-  ['price', '가격'],
-  ['changeRate', '등락률'],
-  ['volume', '거래량'],
-] as const;
-
-type SortKey = (typeof columns)[number][0];
-type Sort = { key: SortKey; direction: 'ascending' | 'descending' };
-const integers = new Intl.NumberFormat('ko-KR');
-const percentage = new Intl.NumberFormat('ko-KR', {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-  signDisplay: 'exceptZero',
-});
 
 export function StockDashboard() {
   useLoadWatchlist();
   const [input, setInput] = useState('');
   const [query, setQuery] = useState('');
   const [market, setMarket] = useState<Market | ''>('');
-  const [sort, setSort] = useState<Sort>();
+  const [sort, setSort] = useState<StockSort>();
+  const [showAll, setShowAll] = useState(false);
   const keyword = input.trim();
 
   useEffect(() => {
@@ -40,6 +24,8 @@ export function StockDashboard() {
   }, [keyword]);
 
   const waitingForInput = keyword !== query;
+  // Cached filters skip loading: remount table scroll state while parent preferences survive.
+  const resultKey = JSON.stringify([query, market]);
   const stocks = useQuery({
     queryKey: ['stocks', query, market],
     queryFn: ({ signal }) => fetchStocks(query, market, signal),
@@ -58,7 +44,7 @@ export function StockDashboard() {
       })
     : rows;
 
-  function sortBy(key: SortKey) {
+  function sortBy(key: StockSort['key']) {
     setSort((current) => ({
       key,
       direction:
@@ -129,73 +115,14 @@ export function StockDashboard() {
         </div>
       )}
       {!loading && !stocks.isError && stocks.data && stocks.data.total > 0 && (
-        <div
-          className="stock-table-scroll"
-          role="region"
-          aria-label="종목 검색 결과"
-          tabIndex={0}
-        >
-          <table>
-            <caption className="sr-only">국내 주식 모의 종목 목록</caption>
-            <thead>
-              <tr>
-                <th scope="col">종목코드</th>
-                <th scope="col">종목명</th>
-                <th scope="col">시장</th>
-                <th scope="col">업종</th>
-                {columns.map(([key, label]) => (
-                  <th
-                    key={key}
-                    scope="col"
-                    aria-sort={sort?.key === key ? sort.direction : undefined}
-                  >
-                    <button
-                      type="button"
-                      className="stock-sort-button"
-                      onClick={() => sortBy(key)}
-                    >
-                      {label}{' '}
-                      <span aria-hidden="true">
-                        {sort?.key !== key
-                          ? '↕'
-                          : sort.direction === 'ascending'
-                            ? '↑'
-                            : '↓'}
-                      </span>
-                    </button>
-                  </th>
-                ))}
-                <th scope="col">관심종목</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sortedRows.map((stock) => (
-                <tr key={stock.code}>
-                  <td className="stock-code">{stock.code}</td>
-                  <th scope="row">
-                    <Link className="stock-link" href={'/stocks/' + stock.code}>
-                      {stock.name}
-                    </Link>
-                  </th>
-                  <td>{stock.market}</td>
-                  <td>{stock.sector}</td>
-                  <td className="stock-code">
-                    {integers.format(stock.price)}원
-                  </td>
-                  <td className="stock-code">
-                    {percentage.format(stock.changeRate)}%
-                  </td>
-                  <td className="stock-code">
-                    {integers.format(stock.volume)}주
-                  </td>
-                  <td>
-                    <WatchlistButton code={stock.code} name={stock.name} />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <StockTable
+          key={resultKey}
+          rows={sortedRows}
+          sort={sort}
+          onSort={sortBy}
+          showAll={showAll}
+          onShowAllChange={setShowAll}
+        />
       )}
     </section>
   );

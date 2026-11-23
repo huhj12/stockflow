@@ -111,3 +111,9 @@ Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait 
 측정용 production profiling 빌드에서 실제 검색과 합성 30·300·3,000행의 검색·정렬·관심종목을 반복 측정한다. `npm run bench:build` 후 `npm run bench:stocks`를 실행하며 Chromium이 필요하다. 3100·4100 포트를 사용하고 기존 Docker 서버는 유지한다. 일반 빌드로 돌아오려면 `npm run build`를 실행한다.
 
 [측정 방법·결과·한계](docs/performance/day11-baseline.md)와 [원본 데이터](docs/performance/day11-baseline.json)를 보관한다. 최종 7회 측정에서 실제 검색 p50은 308.7ms(275ms debounce 포함), 합성 3,000행 기본 CPU 정렬 p50은 732.2ms였다. 운영 SLA나 성능 개선 수치를 뜻하지 않으며 가상 스크롤 도입 전 기준이다.
+
+## DAY 12 대량 목록 가상화
+
+100개를 초과하는 목록은 TanStack Virtual로 화면 주변 행만 렌더링한다. 기존 30종목 Mock 목록은 전체 표를 유지한다. 키보드 이동·포커스 보존과 전체 목록 표시 전환을 제공하며, 대량 데이터는 테스트·계측 브라우저에만 주입한다.
+
+[구현 결정과 전후 비교](docs/performance/day12-virtualization.md)에 원본 데이터를 보관했다. 동일 조건에서 합성 3,000행 기본 CPU 정렬 p50은 933.1ms → 23.5ms, 해당 DOM 수는 33,063개 → 221개였다. 실제 30종목 검색은 311.9ms → 312.1ms로 큰 차이가 없었다. 운영 SLA나 실제 모바일의 개선율로 해석하지 않는다.

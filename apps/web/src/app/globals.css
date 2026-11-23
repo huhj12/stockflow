@@ -206,3 +206,42 @@ button.watchlist-button:disabled {
 .stock-sort-button {
   white-space: nowrap;
 }
+
+.stock-list-controls {
+  margin-bottom: 12px;
+}
+.stock-list-controls p {
+  font-size: 0.875rem;
+}
+.stock-table-virtual {
+  max-height: 560px;
+  overflow: auto;
+  position: relative;
+}
+.stock-table-virtual table {
+  table-layout: fixed;
+  min-width: 1112px;
+}
+.stock-table-virtual thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.stock-table-virtual tr:not(.stock-spacer) {
+  height: 72px;
+}
+.stock-table-virtual :is(th, td) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.stock-table-scroll .stock-spacer > td {
+  padding: 0;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+.stock-table-virtual thead th {
+  white-space: normal;
+  text-overflow: clip;
+}
