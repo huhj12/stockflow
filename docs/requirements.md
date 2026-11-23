@@ -79,3 +79,10 @@ DAY 6는 브라우저의 localStorage에 종목코드 배열과 갱신 시각을
 - 웹 NEXT_PUBLIC_API_BASE_URL은 빌드 시 결정되는 공개 절대 URL이고 /api를 포함한다. 브라우저가 접근할 수 있어야 하며 Compose 내부 호스트명을 사용하지 않는다.
 - API WEB_ORIGIN은 CORS와 WebSocket 모두에 적용하는 단일 정확한 웹 origin이다. HTTPS 웹은 HTTPS API·WSS를 사용한다.
 - Docker CI는 실제 빌드된 컨테이너의 웹·정적 파일·REST·CORS·WebSocket snapshot/tick을 검증한다. 외부 계정·운영 URL·릴리스는 별도로 확정하며 자동 운영 배포를 추가하지 않는다.
+
+## DAY 11 성능 측정 기준
+
+- 기존 30종목 Mock API 계약은 유지한다. 대량 목록은 측정 브라우저의 응답 주입으로만 생성한다.
+- React Profiler는 NEXT_PUBLIC_ENABLE_PROFILING=1인 별도 production --profile 빌드에서만 활성화한다. 일반 빌드는 Profiler 경계를 마운트하지 않는다.
+- 이벤트→결과 프레임, API 왕복+JSON 파싱, React actualDuration 합산, DOM 수, 긴 작업을 구분한다. 샘플·환경·원본 데이터와 통계의 한계를 함께 기록한다.
+- 계측 기준과 결과는 docs/performance/day11-baseline.md를 따른다. 이번 DAY에는 최적화를 추가하지 않으며 후속 가상 스크롤 도입 여부와 비교 기준으로 사용한다.

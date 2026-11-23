@@ -1,3 +1,4 @@
+import { DashboardProfiler } from '../features/stocks/components/dashboard-profiler';
 import { StockDashboard } from '../features/stocks/components/stock-dashboard';
 
 export default function Home() {
@@ -11,7 +12,13 @@ export default function Home() {
           목록은 고정 스냅샷을 표시합니다.
         </p>
       </header>
-      <StockDashboard />
+      {process.env.NEXT_PUBLIC_ENABLE_PROFILING === '1' ? (
+        <DashboardProfiler>
+          <StockDashboard />
+        </DashboardProfiler>
+      ) : (
+        <StockDashboard />
+      )}
     </main>
   );
 }
