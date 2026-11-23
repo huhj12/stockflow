@@ -76,6 +76,11 @@ test('bounds mounted rows and reaches the final row without losing focus', async
   await expect(last).toBeFocused();
   await last.press('Home');
   await expect(first).toBeFocused();
+  await first.press('PageDown');
+  const nextPage = page.getByRole('link', { name: '가상종목 6', exact: true });
+  await expect(nextPage).toBeFocused();
+  await nextPage.press('PageUp');
+  await expect(first).toBeFocused();
   await first.press('Tab');
   await page.getByRole('button', { name: '삼성전자 관심종목' }).press('Tab');
   await expect(
