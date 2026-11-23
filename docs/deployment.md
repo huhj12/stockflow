@@ -61,7 +61,7 @@ NEXT_PUBLIC_API_BASE_URL은 공개 설정이며 비밀값을 넣지 않는다. D
 
 ## 검증 범위와 제한
 
-2026-11-23 작업 PC에는 Docker 실행 파일이 없어 로컬 Docker 빌드·실행은 미실행이다. 대신 PR의 Docker deployment smoke 작업에서 Linux 이미지 빌드와 외부 포트 접근, REST/CORS, WebSocket 수신을 실제 검증한다. 로컬 npm 품질 검사와 원격 Docker 검증 결과는 PR과 완료 보고에서 구분한다. 실제 Vercel Preview와 외부 API 배포 검증은 아직 수행하지 않았다.
+DAY 9 최초 검증 시에는 작업 PC에 Docker 실행 파일이 없어 로컬 Docker 빌드·실행을 수행하지 않았다. 이후 DAY 10에서 Docker를 설치하고 아래 로컬 검증을 완료했다. 대신 PR의 Docker deployment smoke 작업에서 Linux 이미지 빌드와 외부 포트 접근, REST/CORS, WebSocket 수신을 실제 검증한다. 로컬 npm 품질 검사와 원격 Docker 검증 결과는 PR과 완료 보고에서 구분한다. 실제 Vercel Preview와 외부 API 배포 검증은 아직 수행하지 않았다.
 
 ## 참고
 
@@ -72,3 +72,19 @@ NEXT_PUBLIC_API_BASE_URL은 공개 설정이며 비밀값을 넣지 않는다. D
 ## 리뷰 반영
 
 최초 자동 리뷰에서 API runtime 이미지가 루트 node_modules만 포함해 workspace 내부 NestJS 운영 의존성을 빠뜨리는 문제가 확인되었다. lockfile의 apps/api/node_modules 설치 경로와 대조한 후 production install 단계의 apps/api 디렉터리도 복사하도록 수정했다. 개발 의존성을 복사하는 대신 --omit=dev로 설치한 결과만 사용한다. 실제 이미지 시작·healthcheck·WebSocket 검증은 Docker CI가 담당한다.
+
+## DAY 10 Windows 로컬 검증 — 2026-11-23
+
+Docker Desktop 4.100.0을 winget의 Docker.DockerDesktop 패키지로 설치했다. Docker Engine 29.9.3, Compose v5.7.1, WSL 3.0.5와 Ubuntu 24.04의 WSL 2에서 검증했다. 컨테이너 Node.js는 24.22.3, 호스트 테스트 클라이언트는 24.22.1이다.
+
+- docker compose config --quiet 통과.
+- docker compose up --build --detach --wait --wait-timeout 180으로 Linux 웹·API 이미지 빌드와 두 컨테이너 healthcheck 통과.
+- node scripts/smoke-deployment.mjs로 웹 HTML·TradingView 라이선스 정적 파일·종목 REST·CORS·WebSocket snapshot과 tick 수신 통과.
+- 기존 Playwright E2E 23개를 로컬 Docker 서버에 연결해 모두 통과. 검색·정렬·상세 차트·관심종목 영속화·오류 복구·재연결과 모바일 흐름을 포함한다. 별도 서버 기동을 생략하는 임시 설정은 .tools/docker-playwright.config.ts에만 두어 Git에서 제외했다.
+- docker compose restart 후 건강 상태와 smoke 재검증 통과.
+- docker compose down 후 컨테이너 목록이 비었고 3000·4000 포트의 리스너가 사라진 것을 확인.
+- 다시 docker compose up --detach --wait --wait-timeout 180으로 기동하고 smoke 재검증 통과. 최종 확인 시 웹·API 모두 healthy이며 로컬 확인용으로 실행 상태를 유지했다.
+
+첫 빌드에서는 설치 전부터 실행 중인 터미널의 PATH에 Docker credential helper 경로가 없어 실패했다. 현재 셸 PATH 앞에 C:/Program Files/Docker/Docker/resources/bin을 추가해 해결했다. 새 터미널에서는 설치된 PATH를 사용하며, 기존 터미널이라면 동일 경로를 반영하거나 터미널 앱을 다시 실행한다. Docker Hub 로그인은 하지 않았다.
+
+설치 프로그램은 Windows 기능 변경에 따른 재부팅 필요 표시를 남겼지만, 이번 검증에서는 재부팅 없이 WSL 엔진과 컨테이너가 정상 실행됐다. PC를 자동 재부팅하지 않았다. 외부 배포와 PR 병합은 수행하지 않았다.
