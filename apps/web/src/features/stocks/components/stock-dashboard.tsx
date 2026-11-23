@@ -24,6 +24,8 @@ export function StockDashboard() {
   }, [keyword]);
 
   const waitingForInput = keyword !== query;
+  // Cached filters skip loading: remount table scroll state while parent preferences survive.
+  const resultKey = JSON.stringify([query, market]);
   const stocks = useQuery({
     queryKey: ['stocks', query, market],
     queryFn: ({ signal }) => fetchStocks(query, market, signal),
@@ -114,6 +116,7 @@ export function StockDashboard() {
       )}
       {!loading && !stocks.isError && stocks.data && stocks.data.total > 0 && (
         <StockTable
+          key={resultKey}
           rows={sortedRows}
           sort={sort}
           onSort={sortBy}

@@ -240,3 +240,8 @@ button.watchlist-button:disabled {
   font-size: 0;
   line-height: 0;
 }
+
+.stock-table-virtual thead th {
+  white-space: normal;
+  text-overflow: clip;
+}

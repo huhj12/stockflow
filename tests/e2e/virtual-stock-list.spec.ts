@@ -146,6 +146,17 @@ test('handles mobile resizing, larger text and market changes', async ({
   await page.addStyleTag({
     content: '.stock-table-virtual { font-size: 28px; }',
   });
+  const codeHeader = page.getByRole('columnheader', {
+    name: '종목코드',
+    exact: true,
+  });
+  await expect
+    .poll(() =>
+      codeHeader.evaluate(
+        (element) => element.scrollWidth <= element.clientWidth,
+      ),
+    )
+    .toBe(true);
   await region(page).evaluate((element) => {
     element.scrollTop = element.scrollHeight;
   });
@@ -200,4 +211,38 @@ test('reveals keyboard focus horizontally and lets Tab leave the list', async ({
   const first = page.getByRole('link', { name: '삼성전자', exact: true });
   await expect(first).toBeFocused();
   await expect(first).toBeInViewport();
+});
+
+test('resets scroll when returning to cached market results', async ({
+  page,
+}) => {
+  let requests = 0;
+  page.on('request', (request) => {
+    if (new URL(request.url()).pathname === '/api/stocks') requests += 1;
+  });
+  const market = page.getByRole('combobox', { name: '시장' });
+  await market.selectOption('KOSDAQ');
+  await expect(page.getByRole('status')).toHaveText('검색 결과 1500건');
+  await region(page).evaluate((element) => {
+    element.scrollTop = element.scrollHeight / 2;
+  });
+  await expect
+    .poll(() => region(page).evaluate((element) => element.scrollTop))
+    .toBeGreaterThan(1000);
+  await market.selectOption('');
+  await expect(page.getByRole('status')).toHaveText('검색 결과 3000건');
+  await expect
+    .poll(() => region(page).evaluate((element) => element.scrollTop))
+    .toBe(0);
+  await expect(rows(page).first()).toHaveAttribute('data-stock-code', '005930');
+  await region(page).evaluate((element) => {
+    element.scrollTop = element.scrollHeight;
+  });
+  await market.selectOption('KOSDAQ');
+  await expect(page.getByRole('status')).toHaveText('검색 결과 1500건');
+  await expect
+    .poll(() => region(page).evaluate((element) => element.scrollTop))
+    .toBe(0);
+  await expect(rows(page).first()).toHaveAttribute('data-stock-code', '900001');
+  expect(requests).toBe(1);
 });
