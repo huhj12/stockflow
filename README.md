@@ -99,3 +99,9 @@ npm run test:e2e
 전체 검증은 위의 품질 명령과 `npm run test:e2e`를 사용한다. 통합 시나리오만 실행하려면 프로덕션 빌드 후 `npm run test:e2e -- tests/e2e/mvp-integration.spec.ts`를 실행한다. 테스트가 3000·4000 포트에서 웹과 API를 시작하므로 기존 개발 서버는 먼저 종료한다.
 
 검증 범위와 후속 작업은 [DAY 8 검증 기록](docs/day8-verification.md)을 참고한다. 현재 E2E는 Chromium이며 모바일 크기 검증이 실제 iOS Safari 호환성을 보장하지는 않는다.
+
+## DAY 9 배포 준비
+
+다단계 Docker 이미지와 Compose, Vercel 웹 빌드 설정, 컨테이너 REST·WebSocket smoke 검증 CI를 추가했다. API는 API_HOST로 바인딩 주소를 설정하며 기본 로컬 실행은 유지한다.
+
+Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait --wait-timeout 180`으로 웹·API를 기동하고 http://localhost:3000 에 접속한다. 종료는 `docker compose down`이다. 실제 외부 운영 배포는 아직 하지 않았다. 환경 변수, Vercel Root Directory, HTTPS·WebSocket 및 검증 한계는 [배포 안내](docs/deployment.md)를 참고한다.
