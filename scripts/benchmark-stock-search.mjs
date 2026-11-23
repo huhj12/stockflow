@@ -12,6 +12,12 @@ const webOrigin = 'http://localhost:3100';
 const apiBase = 'http://localhost:4100/api';
 const sampleCount = Number(process.env.BENCH_SAMPLES ?? 7);
 const warmups = 2;
+const label = process.env.BENCH_LABEL ?? 'day11-baseline';
+assert.match(
+  label,
+  /^[a-z0-9-]+$/,
+  'BENCH_LABEL must contain lowercase letters, digits or hyphens',
+);
 assert.ok(
   Number.isInteger(sampleCount) && sampleCount >= 5 && sampleCount <= 30,
   'BENCH_SAMPLES: integer 5..30',
@@ -84,7 +90,15 @@ async function arm(page, expected, eventType) {
       let finishing = false;
       function check() {
         if (state.started === null || finishing) return;
-        const rows = document.querySelectorAll('tbody tr');
+        const table = document.querySelector('table');
+        const rows = document.querySelectorAll(
+          'tbody tr:not([aria-hidden="true"])',
+        );
+        const countMatches =
+          table?.dataset.virtualized === 'true'
+            ? Number(table.dataset.stockCount) === expected.rows &&
+              rows.length > 0
+            : rows.length === expected.rows;
         const first = rows[0]?.querySelector('td')?.textContent;
         const sort = document
           .querySelector('th[aria-sort]')
@@ -94,7 +108,7 @@ async function arm(page, expected, eventType) {
         );
         const matches = expected.favoriteName
           ? button?.getAttribute('aria-pressed') === expected.pressed
-          : rows.length === expected.rows &&
+          : countMatches &&
             (!expected.first || first === expected.first) &&
             (!expected.sort || sort === expected.sort);
         if (!matches) return;
@@ -115,6 +129,7 @@ async function arm(page, expected, eventType) {
               elapsedMs: ended - state.started,
               apiMs: request ? request.responseEnd - request.startTime : null,
               domElements: document.querySelectorAll('*').length,
+              renderedRows: rows.length,
               profiles: state.profiles,
               longTasks: state.longTasks.filter(
                 (entry) =>
@@ -292,6 +307,14 @@ try {
           name: '성능테스트 0 관심종목',
           exact: true,
         });
+        // Reveal the same code before starting the click timer in either implementation.
+        await page.evaluate((last) => {
+          const region = document.querySelector(
+            '[data-virtualized-region="true"]',
+          );
+          if (region) region.scrollTop = last ? region.scrollHeight : 0;
+        }, descending);
+        await favorite.waitFor({ state: 'visible' });
         const pressed =
           (await favorite.getAttribute('aria-pressed')) === 'true'
             ? 'false'
@@ -320,6 +343,7 @@ try {
   }
   const report = {
     measuredAt: new Date().toISOString(),
+    label,
     sourceCommit: execFileSync(
       'git',
       [
@@ -375,7 +399,7 @@ try {
   const output = path.join(root, '.tools/performance');
   await mkdir(output, { recursive: true });
   await writeFile(
-    path.join(output, 'day11-baseline.json'),
+    path.join(output, `${label}.json`),
     JSON.stringify(report, null, 2) + '\n',
   );
   console.log(
