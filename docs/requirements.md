@@ -73,6 +73,13 @@ DAY 6는 브라우저의 localStorage에 종목코드 배열과 갱신 시각을
 - 상세 화면을 나가면 진행 중인 WebSocket뿐 아니라 대기 중인 재연결도 취소한다.
 - DAY 8은 기존 API 계약을 유지하고 신규 패키지나 실제 시세 연동을 추가하지 않는다.
 
+## DAY 9 배포 계약
+
+- 로컬 npm 실행 시 API는 기본 127.0.0.1:4000, 컨테이너에서는 API_HOST=0.0.0.0을 사용한다. /api prefix, CORS, health API와 WebSocket 계약을 유지한다.
+- 웹 NEXT_PUBLIC_API_BASE_URL은 빌드 시 결정되는 공개 절대 URL이고 /api를 포함한다. 브라우저가 접근할 수 있어야 하며 Compose 내부 호스트명을 사용하지 않는다.
+- API WEB_ORIGIN은 CORS와 WebSocket 모두에 적용하는 단일 정확한 웹 origin이다. HTTPS 웹은 HTTPS API·WSS를 사용한다.
+- Docker CI는 실제 빌드된 컨테이너의 웹·정적 파일·REST·CORS·WebSocket snapshot/tick을 검증한다. 외부 계정·운영 URL·릴리스는 별도로 확정하며 자동 운영 배포를 추가하지 않는다.
+
 ## DAY 11 성능 측정 기준
 
 - 기존 30종목 Mock API 계약은 유지한다. 대량 목록은 측정 브라우저의 응답 주입으로만 생성한다.

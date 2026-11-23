@@ -100,6 +100,12 @@ npm run test:e2e
 
 검증 범위와 후속 작업은 [DAY 8 검증 기록](docs/day8-verification.md)을 참고한다. 현재 E2E는 Chromium이며 모바일 크기 검증이 실제 iOS Safari 호환성을 보장하지는 않는다.
 
+## DAY 9 배포 준비
+
+다단계 Docker 이미지와 Compose, Vercel 웹 빌드 설정, 컨테이너 REST·WebSocket smoke 검증 CI를 추가했다. API는 API_HOST로 바인딩 주소를 설정하며 기본 로컬 실행은 유지한다.
+
+Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait --wait-timeout 180`으로 웹·API를 기동하고 http://localhost:3000 에 접속한다. 종료는 `docker compose down`이다. 실제 외부 운영 배포는 아직 하지 않았다. 환경 변수, Vercel Root Directory, HTTPS·WebSocket 및 검증 한계는 [배포 안내](docs/deployment.md)를 참고한다.
+
 ## DAY 11 성능 기준 측정
 
 측정용 production profiling 빌드에서 실제 검색과 합성 30·300·3,000행의 검색·정렬·관심종목을 반복 측정한다. `npm run bench:build` 후 `npm run bench:stocks`를 실행하며 Chromium이 필요하다. 3100·4100 포트를 사용하고 기존 Docker 서버는 유지한다. 일반 빌드로 돌아오려면 `npm run build`를 실행한다.
