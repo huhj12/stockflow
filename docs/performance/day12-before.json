@@ -1,0 +1,4419 @@
+{
+  "measuredAt": "2026-11-23T12:35:09.938Z",
+  "label": "day12-before",
+  "sourceCommit": "572ca89e590641f68fa8287695f4a7e9508d5732",
+  "trackedWorktreeDirty": false,
+  "environment": {
+    "os": "win32 10.0.26200",
+    "cpu": "Intel(R) Core(TM) i5-9400F CPU @ 2.90GHz",
+    "logicalCpus": 6,
+    "hostNode": "v24.22.1",
+    "chromium": "156.0.8078.4",
+    "viewport": "1280x800",
+    "build": "Next production --profile",
+    "network": "loopback, no throttling; synthetic responses intercepted in browser",
+    "warmups": 2,
+    "samples": 7
+  },
+  "httpWithJsonMs": {
+    "n": 7,
+    "p50": 1.5488000000000284,
+    "p95": 1.9627999999997883,
+    "min": 1.3472999999999047,
+    "max": 1.9627999999997883
+  },
+  "summaries": [
+    {
+      "key": "real-search:30:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 311.8999999985099,
+        "p95": 323.7999999988824,
+        "min": 301.30000000074506,
+        "max": 323.7999999988824
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 0.9999999981373549,
+        "p95": 1.099999999627471,
+        "min": 0.6999999992549419,
+        "max": 1.099999999627471
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 74,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-search:30:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 311,
+        "p95": 325.09999999962747,
+        "min": 307.2999999988824,
+        "max": 325.09999999962747
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 1.8999999947845936,
+        "p95": 2.500000001862645,
+        "min": 1.5,
+        "max": 2.500000001862645
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 393,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-sort:30:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 28.299999998882413,
+        "p95": 29.800000000745058,
+        "min": 21.200000001117587,
+        "max": 29.800000000745058
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 0.7999999988824129,
+        "p95": 1.099999999627471,
+        "min": 0.5,
+        "max": 1.099999999627471
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 393,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-watchlist:30:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 44.70000000111759,
+        "p95": 47.30000000074506,
+        "min": 40.40000000037253,
+        "max": 47.30000000074506
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 0,
+        "p95": 0.09999999962747097,
+        "min": 0,
+        "max": 0.09999999962747097
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 393,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-search:300:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 368.7000000011176,
+        "p95": 385.80000000074506,
+        "min": 355.1000000014901,
+        "max": 385.80000000074506
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 10.799999998882413,
+        "p95": 12.400000000372529,
+        "min": 9.900000002235174,
+        "max": 12.400000000372529
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 3363,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-sort:300:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 77.59999999962747,
+        "p95": 86.19999999925494,
+        "min": 73.19999999925494,
+        "max": 86.19999999925494
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 4.399999998509884,
+        "p95": 5.299999998882413,
+        "min": 3.7000000029802322,
+        "max": 5.299999998882413
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 3363,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-watchlist:300:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 43.600000001490116,
+        "p95": 46.69999999925494,
+        "min": 43.19999999925494,
+        "max": 46.69999999925494
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 0.19999999925494194,
+        "p95": 0.30000000074505806,
+        "min": 0,
+        "max": 0.30000000074505806
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 3363,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-search:3000:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 1154.5999999996275,
+        "p95": 1403.2999999988824,
+        "min": 1095.9000000003725,
+        "max": 1403.2999999988824
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 120.300000006333,
+        "p95": 140.99999998882413,
+        "min": 105.99999999813735,
+        "max": 140.99999998882413
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 33063,
+      "longTaskCount": 21
+    },
+    {
+      "key": "synthetic-sort:3000:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 933.0999999996275,
+        "p95": 1362.9000000003725,
+        "min": 784.5,
+        "max": 1362.9000000003725
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 55.80000000074506,
+        "p95": 69.39999999664724,
+        "min": 42.600000005215406,
+        "max": 69.39999999664724
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 33063,
+      "longTaskCount": 14
+    },
+    {
+      "key": "synthetic-watchlist:3000:1",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 136,
+        "p95": 188.90000000037253,
+        "min": 103.59999999962747,
+        "max": 188.90000000037253
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 1.9000000022351742,
+        "p95": 3.4999999944120646,
+        "min": 1.199999999254942,
+        "max": 3.4999999944120646
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 33063,
+      "longTaskCount": 2
+    },
+    {
+      "key": "synthetic-search:30:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 343.90000000037253,
+        "p95": 359,
+        "min": 324.59999999962747,
+        "max": 359
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 10.400000002235174,
+        "p95": 18.00000000372529,
+        "min": 2.099999999627471,
+        "max": 18.00000000372529
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 393,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-sort:30:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 41.20000000111759,
+        "p95": 52.59999999962747,
+        "min": 25,
+        "max": 52.59999999962747
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 2,
+        "p95": 6.299999998882413,
+        "min": 1.3999999985098839,
+        "max": 6.299999998882413
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 393,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-watchlist:30:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 38.79999999888241,
+        "p95": 42,
+        "min": 28.799999998882413,
+        "max": 42
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 0,
+        "p95": 0.2000000011175871,
+        "min": 0,
+        "max": 0.2000000011175871
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 393,
+      "longTaskCount": 0
+    },
+    {
+      "key": "synthetic-search:300:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 589.6999999992549,
+        "p95": 810.7999999988824,
+        "min": 404.2000000011176,
+        "max": 810.7999999988824
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 57.30000000074506,
+        "p95": 103.20000000298023,
+        "min": 13.899999994784594,
+        "max": 103.20000000298023
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 3363,
+      "longTaskCount": 9
+    },
+    {
+      "key": "synthetic-sort:300:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 222.5,
+        "p95": 393.19999999925494,
+        "min": 124.29999999888241,
+        "max": 393.19999999925494
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 10.90000000409782,
+        "p95": 27.40000000409782,
+        "min": 7.099999995902181,
+        "max": 27.40000000409782
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 3363,
+      "longTaskCount": 12
+    },
+    {
+      "key": "synthetic-watchlist:300:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 57.600000001490116,
+        "p95": 143.7999999988824,
+        "min": 37.59999999962747,
+        "max": 143.7999999988824
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 0.2999999988824129,
+        "p95": 2.299999998882413,
+        "min": 0.09999999962747097,
+        "max": 2.299999998882413
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 3363,
+      "longTaskCount": 1
+    },
+    {
+      "key": "synthetic-search:3000:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 3413.5,
+        "p95": 4017.199999999255,
+        "min": 2383.4000000003725,
+        "max": 4017.199999999255
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 439.50000000186265,
+        "p95": 514.4000000096858,
+        "min": 181.7000000141561,
+        "max": 514.4000000096858
+      },
+      "reactCommits": [3, 3, 3, 3, 3, 3, 3],
+      "domElements": 33063,
+      "longTaskCount": 21
+    },
+    {
+      "key": "synthetic-sort:3000:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 2951.300000000745,
+        "p95": 3104.2999999988824,
+        "min": 2185.7000000011176,
+        "max": 3104.2999999988824
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 184.60000000707805,
+        "p95": 254.09999999776483,
+        "min": 107.79999999888241,
+        "max": 254.09999999776483
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 33063,
+      "longTaskCount": 14
+    },
+    {
+      "key": "synthetic-watchlist:3000:4",
+      "elapsedMs": {
+        "n": 7,
+        "p50": 288.69999999925494,
+        "p95": 510.2999999988824,
+        "min": 165.69999999925494,
+        "max": 510.2999999988824
+      },
+      "reactRenderSumMs": {
+        "n": 7,
+        "p50": 2.600000001490116,
+        "p95": 8.50000000745058,
+        "min": 1.699999999254942,
+        "max": 8.50000000745058
+      },
+      "reactCommits": [1, 1, 1, 1, 1, 1, 1],
+      "domElements": 33063,
+      "longTaskCount": 2
+    }
+  ],
+  "httpSamples": [
+    1.5736000000001695, 1.876299999999901, 1.5488000000000284,
+    1.4687999999996464, 1.5144999999997708, 1.9627999999997883,
+    1.3472999999999047
+  ],
+  "raw": [
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 311.2999999988824,
+      "apiMs": 2.699999999254942,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 114,
+          "commitTime": 114.20000000111759
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2999999988824129,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 391.2000000011176,
+          "commitTime": 391.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.599999999627471,
+          "baseDuration": 0.3999999985098839,
+          "startTime": 396.30000000074506,
+          "commitTime": 396.90000000037253
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 322.09999999962747,
+      "apiMs": 1.3999999985098839,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 108.5,
+          "commitTime": 108.69999999925494
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2999999988824129,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 395.80000000074506,
+          "commitTime": 396.09999999962747
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.599999999627471,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 400.30000000074506,
+          "commitTime": 401
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 311.8999999985099,
+      "apiMs": 1.799999998882413,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 100.19999999925494,
+          "commitTime": 100.29999999888241
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 378.19999999925494,
+          "commitTime": 378.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.40000000037252903,
+          "baseDuration": 0.40000000037252903,
+          "startTime": 382.5,
+          "commitTime": 383.09999999962747
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 312.40000000037253,
+      "apiMs": 2.099999999627471,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 100.90000000037253,
+          "commitTime": 101.10000000149012
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 378.90000000037253,
+          "commitTime": 379.2000000011176
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.5,
+          "baseDuration": 0.5,
+          "startTime": 383.7000000011176,
+          "commitTime": 384.30000000074506
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 311.2000000011176,
+      "apiMs": 1.200000001117587,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 117.20000000111759,
+          "commitTime": 117.40000000037253
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 395.30000000074506,
+          "commitTime": 395.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.40000000037252903,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 399,
+          "commitTime": 399.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 301.30000000074506,
+      "apiMs": 1.5,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0,
+          "startTime": 95,
+          "commitTime": 95.19999999925494
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 372.7999999988824,
+          "commitTime": 373
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.8999999985098839,
+          "baseDuration": 0.6999999992549419,
+          "startTime": 376.90000000037253,
+          "commitTime": 377.90000000037253
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "real-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 323.7999999988824,
+      "apiMs": 5.299999998882413,
+      "domElements": 74,
+      "renderedRows": 1,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 151.09999999962747,
+          "commitTime": 151.19999999925494
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 438.5,
+          "commitTime": 438.80000000074506
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 446.19999999925494,
+          "commitTime": 446.59999999962747
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 308.40000000037253,
+      "apiMs": 2,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 1430.5999999996275,
+          "commitTime": 1430.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.3999999985098839,
+          "startTime": 1707.800000000745,
+          "commitTime": 1708
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.5999999959021807,
+          "baseDuration": 0.7999999970197678,
+          "startTime": 1711.800000000745,
+          "commitTime": 1713.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 26.799999998882413,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.099999999627471,
+          "baseDuration": 1.299999998882413,
+          "startTime": 1795.5,
+          "commitTime": 1796.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 44.70000000111759,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 1.299999998882413,
+          "startTime": 1872.300000000745,
+          "commitTime": 1872.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 320.5,
+      "apiMs": 3.200000001117587,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 1934.5999999996275,
+          "commitTime": 1934.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.40000000037252903,
+          "startTime": 2220.0999999996275,
+          "commitTime": 2220.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.200000001117587,
+          "baseDuration": 1.5000000037252903,
+          "startTime": 2225.5,
+          "commitTime": 2227.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 28.09999999962747,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.7999999988824129,
+          "baseDuration": 0.9999999981373549,
+          "startTime": 2309.5999999996275,
+          "commitTime": 2310.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 44.600000001490116,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 2388.9000000003725,
+          "commitTime": 2389
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 311,
+      "apiMs": 2.799999998882413,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 2459.800000000745,
+          "commitTime": 2460
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 2738.4000000003725,
+          "commitTime": 2738.5999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.6000000014901161,
+          "baseDuration": 1.299999998882413,
+          "startTime": 2743.5,
+          "commitTime": 2745.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 29.800000000745058,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.7999999988824129,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 2825.0999999996275,
+          "commitTime": 2826.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 44.90000000037253,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 2905.5,
+          "commitTime": 2905.5999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 307.40000000037253,
+      "apiMs": 2.099999999627471,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 2963.4000000003725,
+          "commitTime": 2963.5999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.10000000149011612,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 3240.199999999255,
+          "commitTime": 3240.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.6000000014901161,
+          "baseDuration": 0.7999999988824129,
+          "startTime": 3244.199999999255,
+          "commitTime": 3245.9000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 29,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.7999999988824129,
+          "baseDuration": 0.7999999970197678,
+          "startTime": 3326.300000000745,
+          "commitTime": 3327.300000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 43.29999999888241,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.7999999970197678,
+          "startTime": 3404.9000000003725,
+          "commitTime": 3405
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 307.2999999988824,
+      "apiMs": 1.800000000745058,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.2999999988824129,
+          "startTime": 3464.5,
+          "commitTime": 3464.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 3743.5,
+          "commitTime": 3743.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.300000000745058,
+          "baseDuration": 0.7999999988824129,
+          "startTime": 3746.9000000003725,
+          "commitTime": 3748.5999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 21.200000001117587,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.599999999627471,
+          "baseDuration": 0.7999999988824129,
+          "startTime": 3833.300000000745,
+          "commitTime": 3834.300000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 47.30000000074506,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.7999999988824129,
+          "startTime": 3906,
+          "commitTime": 3906
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 325.09999999962747,
+      "apiMs": 3.900000000372529,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 3963.199999999255,
+          "commitTime": 3963.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.3999999985098839,
+          "startTime": 4252.300000000745,
+          "commitTime": 4252.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.5000000018626451,
+          "baseDuration": 1.099999999627471,
+          "startTime": 4258.199999999255,
+          "commitTime": 4259.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 28.299999998882413,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.5,
+          "baseDuration": 0.6999999992549419,
+          "startTime": 4342.5,
+          "commitTime": 4343.300000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 40.40000000037253,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.6999999992549419,
+          "startTime": 4421.699999999255,
+          "commitTime": 4421.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 313.19999999925494,
+      "apiMs": 2.099999999627471,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.3999999985098839,
+          "startTime": 4492,
+          "commitTime": 4492.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.3999999985098839,
+          "startTime": 4768.9000000003725,
+          "commitTime": 4769.199999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.5999999977648258,
+          "baseDuration": 0.49999999813735485,
+          "startTime": 4773.300000000745,
+          "commitTime": 4775.199999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 28.59999999962747,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.5000000018626451,
+          "baseDuration": 0.599999999627471,
+          "startTime": 4858.699999999255,
+          "commitTime": 4859.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 46.20000000111759,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.599999999627471,
+          "startTime": 4939.5,
+          "commitTime": 4939.5999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 374,
+      "apiMs": 3.5,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 1801.300000000745,
+          "commitTime": 1801.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 2085.10000000149,
+          "commitTime": 2085.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 10.5,
+          "baseDuration": 3.600000001490116,
+          "startTime": 2091.300000000745,
+          "commitTime": 2103.300000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 83,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 5.299999997019768,
+          "baseDuration": 3.8999999947845936,
+          "startTime": 2226.2000000011176,
+          "commitTime": 2233.7000000011176
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 46.69999999925494,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 3.8999999947845936,
+          "startTime": 2394.4000000003725,
+          "commitTime": 2394.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 368.7000000011176,
+      "apiMs": 6.5,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0,
+          "startTime": 2464.60000000149,
+          "commitTime": 2464.60000000149
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 2750.9000000003725,
+          "commitTime": 2751.10000000149
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 11.899999996647239,
+          "baseDuration": 4.499999992549419,
+          "startTime": 2760.60000000149,
+          "commitTime": 2773.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 77.59999999962747,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.299999998882413,
+          "baseDuration": 3.699999999254942,
+          "startTime": 2877.5,
+          "commitTime": 2883.10000000149
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 44.30000000074506,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 3.699999999254942,
+          "startTime": 3039.5,
+          "commitTime": 3039.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 364.5,
+      "apiMs": 3.199999999254942,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 3122,
+          "commitTime": 3122.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 3404.7000000011176,
+          "commitTime": 3404.9000000003725
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 9.500000001862645,
+          "baseDuration": 3.799999998882413,
+          "startTime": 3410.300000000745,
+          "commitTime": 3421.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 86.19999999925494,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.100000001490116,
+          "baseDuration": 3.600000001490116,
+          "startTime": 3527.7000000011176,
+          "commitTime": 3533.10000000149
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 43.40000000037253,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 3.600000001490116,
+          "startTime": 3711.2000000011176,
+          "commitTime": 3711.60000000149
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 365.59999999962747,
+      "apiMs": 2.599999999627471,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 3771.7000000011176,
+          "commitTime": 3771.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 4053.4000000003725,
+          "commitTime": 4053.7000000011176
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 10.499999998137355,
+          "baseDuration": 3.2999999970197678,
+          "startTime": 4058.5,
+          "commitTime": 4070
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 76.09999999962747,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.600000007078052,
+          "baseDuration": 3.9000000040978193,
+          "startTime": 4210,
+          "commitTime": 4216.9000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 43.600000001490116,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 3.9000000040978193,
+          "startTime": 4372.800000000745,
+          "commitTime": 4373.200000001118
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 369.80000000074506,
+      "apiMs": 4.899999998509884,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0,
+          "startTime": 4436.700000001118,
+          "commitTime": 4436.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 4719.5,
+          "commitTime": 4719.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 12.099999999627471,
+          "baseDuration": 4.400000002235174,
+          "startTime": 4726.700000001118,
+          "commitTime": 4739.700000001118
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 73.19999999925494,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 3.7000000029802322,
+          "baseDuration": 3,
+          "startTime": 4861.800000000745,
+          "commitTime": 4867.300000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 44.70000000111759,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 3,
+          "startTime": 5043.800000000745,
+          "commitTime": 5044.10000000149
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 355.1000000014901,
+      "apiMs": 3.399999998509884,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 5121.5,
+          "commitTime": 5121.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.10000000149011612,
+          "baseDuration": 0.10000000149011612,
+          "startTime": 5403.5,
+          "commitTime": 5403.60000000149
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 10.400000002235174,
+          "baseDuration": 3.5000000055879354,
+          "startTime": 5409.200000001118,
+          "commitTime": 5421.200000001118
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 76.30000000074506,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 5.299999998882413,
+          "baseDuration": 4.999999998137355,
+          "startTime": 5535.60000000149,
+          "commitTime": 5541.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 43.30000000074506,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 5.099999999627471,
+          "startTime": 5739.9000000003725,
+          "commitTime": 5740.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 385.80000000074506,
+      "apiMs": 2.900000000372529,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 5822.5,
+          "commitTime": 5822.700000001118
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 6113.10000000149,
+          "commitTime": 6113.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 11.400000005960464,
+          "baseDuration": 4.400000002235174,
+          "startTime": 6118.5,
+          "commitTime": 6131.200000001118
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 78.30000000074506,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.399999998509884,
+          "baseDuration": 4.099999997764826,
+          "startTime": 6263.4000000003725,
+          "commitTime": 6269.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 43.19999999925494,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 4.099999997764826,
+          "startTime": 6460.700000001118,
+          "commitTime": 6461
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 1197.7000000011176,
+      "apiMs": 11,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 7739.9000000003725,
+          "commitTime": 7740.0999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.3000000026077032,
+          "startTime": 8083.5999999996275,
+          "commitTime": 8083.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 109.90000000223517,
+          "baseDuration": 43.099999990314245,
+          "startTime": 8100.9000000003725,
+          "commitTime": 8222.300000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 7739.199999999255,
+          "duration": 69
+        },
+        {
+          "startTime": 8100.9000000003725,
+          "duration": 168
+        },
+        {
+          "startTime": 8269.099999999627,
+          "duration": 668
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 933.0999999996275,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 67.79999999701977,
+          "baseDuration": 62.99999999627471,
+          "startTime": 9091.900000000373,
+          "commitTime": 9177.300000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 9083.699999999255,
+          "duration": 720
+        },
+        {
+          "startTime": 9804.400000000373,
+          "duration": 220
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 0,
+      "elapsedMs": 170.69999999925494,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.199999999254942,
+          "baseDuration": 62.99999999627471,
+          "startTime": 10520,
+          "commitTime": 10523.5
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 10463,
+          "duration": 53
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 1403.2999999988824,
+      "apiMs": 11.900000000372529,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 10787.400000000373,
+          "commitTime": 10787.599999999627
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 11144.5,
+          "commitTime": 11144.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 115.40000000037253,
+          "baseDuration": 39.599999982863665,
+          "startTime": 11164.900000000373,
+          "commitTime": 11291.099999999627
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 10784.300000000745,
+          "duration": 82
+        },
+        {
+          "startTime": 11164.800000000745,
+          "duration": 178
+        },
+        {
+          "startTime": 11343.300000000745,
+          "duration": 847
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 884.5999999996275,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 69.39999999664724,
+          "baseDuration": 57.89999998733401,
+          "startTime": 12403.5,
+          "commitTime": 12493.099999999627
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 12391.300000000745,
+          "duration": 697
+        },
+        {
+          "startTime": 13088.900000000373,
+          "duration": 198
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 1,
+      "elapsedMs": 133.7000000011176,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 3.4999999944120646,
+          "baseDuration": 57.999999986961484,
+          "startTime": 13811.5,
+          "commitTime": 13817.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 1104,
+      "apiMs": 14.799999998882413,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 14104,
+          "commitTime": 14104.099999999627
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 14460.300000000745,
+          "commitTime": 14460.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 105.69999999925494,
+          "baseDuration": 38.09999999217689,
+          "startTime": 14481.300000000745,
+          "commitTime": 14598.5
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 14103,
+          "duration": 72
+        },
+        {
+          "startTime": 14481.300000000745,
+          "duration": 161
+        },
+        {
+          "startTime": 14642.800000000745,
+          "duration": 564
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 1042.3999999985099,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 42.600000005215406,
+          "baseDuration": 37.80000000633299,
+          "startTime": 15342.900000000373,
+          "commitTime": 15416.300000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 15333.699999999255,
+          "duration": 719
+        },
+        {
+          "startTime": 16053,
+          "duration": 331
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 2,
+      "elapsedMs": 188.90000000037253,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.3000000026077032,
+          "baseDuration": 37.900000005960464,
+          "startTime": 17135.300000000745,
+          "commitTime": 17139.400000000373
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 17049.199999999255,
+          "duration": 83
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 1130.300000000745,
+      "apiMs": 10.599999999627471,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.8999999985098839,
+          "baseDuration": 1,
+          "startTime": 17428.800000000745,
+          "commitTime": 17429.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 17774,
+          "commitTime": 17774.099999999627
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 122,
+          "baseDuration": 37.39999998360872,
+          "startTime": 17789,
+          "commitTime": 17921.900000000373
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 17424.5,
+          "duration": 73
+        },
+        {
+          "startTime": 17788.900000000373,
+          "duration": 186
+        },
+        {
+          "startTime": 17975.300000000745,
+          "duration": 583
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 843.5,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 47.79999999701977,
+          "baseDuration": 42.500000005587935,
+          "startTime": 18710.699999999255,
+          "commitTime": 18774.400000000373
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 18710.199999999255,
+          "duration": 621
+        },
+        {
+          "startTime": 19332,
+          "duration": 221
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 3,
+      "elapsedMs": 136,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 3.399999998509884,
+          "baseDuration": 42.600000005215406,
+          "startTime": 20116.699999999255,
+          "commitTime": 20123.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 1162.699999999255,
+      "apiMs": 13.400000000372529,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 20408.599999999627,
+          "commitTime": 20408.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 20757.900000000373,
+          "commitTime": 20758.099999999627
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 136.00000000558794,
+          "baseDuration": 50.8000000230968,
+          "startTime": 20777.099999999627,
+          "commitTime": 20926.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 20407.800000000745,
+          "duration": 74
+        },
+        {
+          "startTime": 20777,
+          "duration": 196
+        },
+        {
+          "startTime": 20973.699999999255,
+          "duration": 597
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 1362.9000000003725,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 55.80000000074506,
+          "baseDuration": 49.60000000335276,
+          "startTime": 21710.699999999255,
+          "commitTime": 21780.699999999255
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 21710.300000000745,
+          "duration": 881
+        },
+        {
+          "startTime": 22591.699999999255,
+          "duration": 481
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 4,
+      "elapsedMs": 129.19999999925494,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.399999998509884,
+          "baseDuration": 49.70000000298023,
+          "startTime": 23696.900000000373,
+          "commitTime": 23702.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 1154.5999999996275,
+      "apiMs": 12,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.30000000074505806,
+          "startTime": 24011,
+          "commitTime": 24011.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.3000000026077032,
+          "startTime": 24363.599999999627,
+          "commitTime": 24363.900000000373
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 140.5999999884516,
+          "baseDuration": 50.599999990314245,
+          "startTime": 24381.699999999255,
+          "commitTime": 24536.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 24007.800000000745,
+          "duration": 75
+        },
+        {
+          "startTime": 24381.699999999255,
+          "duration": 210
+        },
+        {
+          "startTime": 24591.800000000745,
+          "duration": 573
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 784.5,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 54.399999998509884,
+          "baseDuration": 45.400000002235174,
+          "startTime": 25309.5,
+          "commitTime": 25379.900000000373
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 25300.300000000745,
+          "duration": 607
+        },
+        {
+          "startTime": 25908,
+          "duration": 185
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 5,
+      "elapsedMs": 142.09999999962747,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.9000000022351742,
+          "baseDuration": 45.400000002235174,
+          "startTime": 26644.199999999255,
+          "commitTime": 26650.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 1095.9000000003725,
+      "apiMs": 11.200000001117587,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 0.4000000022351742,
+          "startTime": 26971.5,
+          "commitTime": 26971.900000000373
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.3000000026077032,
+          "startTime": 27329.599999999627,
+          "commitTime": 27329.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 119.80000000447035,
+          "baseDuration": 39.20000000670552,
+          "startTime": 27351.900000000373,
+          "commitTime": 27484.300000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 26970.699999999255,
+          "duration": 79
+        },
+        {
+          "startTime": 27351.900000000373,
+          "duration": 176
+        },
+        {
+          "startTime": 27528.599999999627,
+          "duration": 538
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 965.1000000014901,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 59.40000000782311,
+          "baseDuration": 54.89999999664724,
+          "startTime": 28226.900000000373,
+          "commitTime": 28302
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 28217.699999999255,
+          "duration": 735
+        },
+        {
+          "startTime": 28953.099999999627,
+          "duration": 238
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 1,
+      "iteration": 6,
+      "elapsedMs": 103.59999999962747,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.700000001117587,
+          "baseDuration": 54.99999999627471,
+          "startTime": 30224.5,
+          "commitTime": 30228.400000000373
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 324.59999999962747,
+      "apiMs": 8.200000001117587,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.900000000372529,
+          "baseDuration": 0.900000000372529,
+          "startTime": 2326.9000000003725,
+          "commitTime": 2328
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.5,
+          "baseDuration": 0.5,
+          "startTime": 2614.199999999255,
+          "commitTime": 2614.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 3.700000001117587,
+          "baseDuration": 2.0000000037252903,
+          "startTime": 2626.5999999996275,
+          "commitTime": 2630.5999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 40.80000000074506,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 6.299999998882413,
+          "baseDuration": 5.099999999627471,
+          "startTime": 2762.199999999255,
+          "commitTime": 2770.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 38.69999999925494,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 5.199999999254942,
+          "startTime": 2895.199999999255,
+          "commitTime": 2895.5999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 343.90000000037253,
+      "apiMs": 2.400000000372529,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.599999999627471,
+          "baseDuration": 4.599999999627471,
+          "startTime": 2967.5,
+          "commitTime": 2972.199999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.8000000007450581,
+          "baseDuration": 0.8000000007450581,
+          "startTime": 3261.199999999255,
+          "commitTime": 3262.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 5.000000001862645,
+          "baseDuration": 2.599999999627471,
+          "startTime": 3269.0999999996275,
+          "commitTime": 3274.5999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 41.20000000111759,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 5.299999998882413,
+          "baseDuration": 4.199999997392297,
+          "startTime": 3363.4000000003725,
+          "commitTime": 3369.199999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 39.69999999925494,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 4.099999997764826,
+          "startTime": 3485.5999999996275,
+          "commitTime": 3486.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 359,
+      "apiMs": 3.099999999627471,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 3573.300000000745,
+          "commitTime": 3574.0999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.6000000014901161,
+          "baseDuration": 0.5,
+          "startTime": 3860.0999999996275,
+          "commitTime": 3860.9000000003725
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 11.399999998509884,
+          "baseDuration": 4.699999997392297,
+          "startTime": 3871.699999999255,
+          "commitTime": 3884.199999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 44.90000000037253,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.3999999985098839,
+          "baseDuration": 1.599999999627471,
+          "startTime": 3983.4000000003725,
+          "commitTime": 3985
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 38.79999999888241,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 1.599999999627471,
+          "startTime": 4118.9000000003725,
+          "commitTime": 4118.9000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 328,
+      "apiMs": 12.5,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.40000000037252903,
+          "baseDuration": 0.40000000037252903,
+          "startTime": 4203.9000000003725,
+          "commitTime": 4204.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 4496.5,
+          "commitTime": 4496.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.599999999627471,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 4512.300000000745,
+          "commitTime": 4514.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 25,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2,
+          "baseDuration": 1.800000000745058,
+          "startTime": 4610.4000000003725,
+          "commitTime": 4613
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 28.799999998882413,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 1.800000000745058,
+          "startTime": 4771.5999999996275,
+          "commitTime": 4771.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 349.80000000074506,
+      "apiMs": 2.800000000745058,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0,
+          "startTime": 4830.300000000745,
+          "commitTime": 4830.4000000003725
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.19999999925494194,
+          "startTime": 5116.5,
+          "commitTime": 5116.800000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 7.199999999254942,
+          "baseDuration": 3.100000001490116,
+          "startTime": 5123,
+          "commitTime": 5132.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 41.5,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.299999998882413,
+          "baseDuration": 4.500000001862645,
+          "startTime": 5248.300000000745,
+          "commitTime": 5254.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 33.5,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 4.500000001862645,
+          "startTime": 5368.0999999996275,
+          "commitTime": 5368.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 350.2999999988824,
+      "apiMs": 6.399999998509884,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.2000000011175871,
+          "startTime": 5432.0999999996275,
+          "commitTime": 5432.4000000003725
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0,
+          "startTime": 5724.0999999996275,
+          "commitTime": 5724.199999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 17.800000002607703,
+          "baseDuration": 12.300000004470348,
+          "startTime": 5739.5999999996275,
+          "commitTime": 5758.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 52.59999999962747,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.900000000372529,
+          "baseDuration": 1.800000000745058,
+          "startTime": 5830.5,
+          "commitTime": 5832.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 42,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 1.800000000745058,
+          "startTime": 5984.300000000745,
+          "commitTime": 5984.4000000003725
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 329.5,
+      "apiMs": 7.399999998509884,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.09999999962747097,
+          "startTime": 6042.0999999996275,
+          "commitTime": 6042.199999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.099999999627471,
+          "baseDuration": 1.099999999627471,
+          "startTime": 6320,
+          "commitTime": 6321.0999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 14.200000001117587,
+          "baseDuration": 6.700000004842877,
+          "startTime": 6336.9000000003725,
+          "commitTime": 6351.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 33.80000000074506,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.5,
+          "baseDuration": 1.7000000029802322,
+          "startTime": 6473.199999999255,
+          "commitTime": 6475.0999999996275
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 30,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 39.40000000037253,
+      "apiMs": null,
+      "domElements": 393,
+      "renderedRows": 30,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 1.7000000029802322,
+          "startTime": 6588.9000000003725,
+          "commitTime": 6589
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 810.7999999988824,
+      "apiMs": 18.09999999962747,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.6999999992549419,
+          "startTime": 4179.4000000003725,
+          "commitTime": 4179.5999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.7000000011175871,
+          "baseDuration": 1.200000001117587,
+          "startTime": 4521.199999999255,
+          "commitTime": 4522.199999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 102.3000000026077,
+          "baseDuration": 48.20000000484288,
+          "startTime": 4571.199999999255,
+          "commitTime": 4689.5999999996275
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 4170.0999999996275,
+          "duration": 74
+        },
+        {
+          "startTime": 4570.5,
+          "duration": 140
+        },
+        {
+          "startTime": 4711.0999999996275,
+          "duration": 275
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 124.29999999888241,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 10.90000000409782,
+          "baseDuration": 10.900000000372529,
+          "startTime": 5088.5,
+          "commitTime": 5102
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 5086.5,
+          "duration": 100
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 143.7999999988824,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.299999998882413,
+          "baseDuration": 10.800000000745058,
+          "startTime": 5432.199999999255,
+          "commitTime": 5438.5999999996275
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 5369,
+          "duration": 50
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 575.8000000007451,
+      "apiMs": 6.299999998882413,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.599999999627471,
+          "startTime": 5745.5,
+          "commitTime": 5745.5999999996275
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.6000000014901161,
+          "baseDuration": 1.1000000014901161,
+          "startTime": 6042.199999999255,
+          "commitTime": 6042.9000000003725
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 56.59999999962747,
+          "baseDuration": 19.500000005587935,
+          "startTime": 6062.800000000745,
+          "commitTime": 6125.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 6062.300000000745,
+          "duration": 77
+        },
+        {
+          "startTime": 6139.9000000003725,
+          "duration": 180
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 377,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 27.40000000409782,
+          "baseDuration": 25.800000006332994,
+          "startTime": 6451.5999999996275,
+          "commitTime": 6481.5999999996275
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 6427,
+          "duration": 304
+        },
+        {
+          "startTime": 6731.300000000745,
+          "duration": 96
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 57.600000001490116,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.8000000007450581,
+          "baseDuration": 25.80000000819564,
+          "startTime": 7014,
+          "commitTime": 7015.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 679,
+      "apiMs": 6.099999999627471,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.599999999627471,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 7126.300000000745,
+          "commitTime": 7127
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.6999999992549419,
+          "baseDuration": 1.199999999254942,
+          "startTime": 7436.800000000745,
+          "commitTime": 7437.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 74.8999999947846,
+          "baseDuration": 29.99999998882413,
+          "startTime": 7451.5,
+          "commitTime": 7530.4000000003725
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 7451.300000000745,
+          "duration": 86
+        },
+        {
+          "startTime": 7537.300000000745,
+          "duration": 266
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 222.5,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 10.200000006705523,
+          "baseDuration": 9.800000002607703,
+          "startTime": 7951.199999999255,
+          "commitTime": 7964.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 7935.5999999996275,
+          "duration": 164
+        },
+        {
+          "startTime": 8102.5,
+          "duration": 68
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 37.59999999962747,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2999999988824129,
+          "baseDuration": 9.800000002607703,
+          "startTime": 8402.199999999255,
+          "commitTime": 8402.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 404.2000000011176,
+      "apiMs": 32.5,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.599999999627471,
+          "startTime": 8527.400000000373,
+          "commitTime": 8527.5
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.3999999985098839,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 8816.300000000745,
+          "commitTime": 8816.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 13.399999996647239,
+          "baseDuration": 5.1999999936670065,
+          "startTime": 8853.099999999627,
+          "commitTime": 8867.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 159.7999999988824,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 7.4999999944120646,
+          "baseDuration": 6.4999999944120646,
+          "startTime": 9083.900000000373,
+          "commitTime": 9093.300000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 9081,
+          "duration": 118
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 41.20000000111759,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 6.4999999944120646,
+          "startTime": 9354.300000000745,
+          "commitTime": 9354.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 549.6999999992549,
+      "apiMs": 5.599999999627471,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.5,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 9441.800000000745,
+          "commitTime": 9442.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.599999999627471,
+          "startTime": 9754.099999999627,
+          "commitTime": 9754.199999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 63.20000000111759,
+          "baseDuration": 18.900000009685755,
+          "startTime": 9762.599999999627,
+          "commitTime": 9830.199999999255
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 9762.599999999627,
+          "duration": 122
+        },
+        {
+          "startTime": 9884.599999999627,
+          "duration": 106
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 173.89999999850988,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 7.099999995902181,
+          "baseDuration": 7,
+          "startTime": 10131.400000000373,
+          "commitTime": 10141.199999999255
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 10129.099999999627,
+          "duration": 114
+        },
+        {
+          "startTime": 10243.699999999255,
+          "duration": 60
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 50.899999998509884,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 7,
+          "startTime": 10524.199999999255,
+          "commitTime": 10524.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 589.6999999992549,
+      "apiMs": 7.5,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.7000000011175871,
+          "startTime": 10720.699999999255,
+          "commitTime": 10721.300000000745
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.099999999627471,
+          "baseDuration": 2.599999999627471,
+          "startTime": 11035.599999999627,
+          "commitTime": 11037.699999999255
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 30.000000001862645,
+          "baseDuration": 10.099999994039536,
+          "startTime": 11103.5,
+          "commitTime": 11134.5
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 376.7000000011176,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 11.700000001117587,
+          "baseDuration": 11.600000001490116,
+          "startTime": 11409.800000000745,
+          "commitTime": 11423.900000000373
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 11406.800000000745,
+          "duration": 276
+        },
+        {
+          "startTime": 11688.800000000745,
+          "duration": 94
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 67.09999999962747,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 11.600000001490116,
+          "startTime": 12133.300000000745,
+          "commitTime": 12133.699999999255
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 595.9000000003725,
+      "apiMs": 4.800000000745058,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.8000000007450581,
+          "baseDuration": 1.300000000745058,
+          "startTime": 12280,
+          "commitTime": 12281.099999999627
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.599999999627471,
+          "startTime": 12601.900000000373,
+          "commitTime": 12602.099999999627
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 31.300000002607703,
+          "baseDuration": 8.5,
+          "startTime": 12614.900000000373,
+          "commitTime": 12648.400000000373
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 393.19999999925494,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 15.900000002235174,
+          "baseDuration": 13.100000008940697,
+          "startTime": 12967.5,
+          "commitTime": 12989.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 12957.800000000745,
+          "duration": 318
+        },
+        {
+          "startTime": 13275.800000000745,
+          "duration": 83
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 300,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 80.69999999925494,
+      "apiMs": null,
+      "domElements": 3363,
+      "renderedRows": 300,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1,
+          "baseDuration": 13.100000008940697,
+          "startTime": 13640.199999999255,
+          "commitTime": 13641.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 2930,
+      "apiMs": 12.5,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.19999999925494194,
+          "baseDuration": 0.5999999977648258,
+          "startTime": 26357.800000000745,
+          "commitTime": 26358.200000001118
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.599999999627471,
+          "startTime": 26822,
+          "commitTime": 26822.200000001118
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 416.1999999899417,
+          "baseDuration": 139.50000001117587,
+          "startTime": 26843.900000000373,
+          "commitTime": 27307.10000000149
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 26353.900000000373,
+          "duration": 192
+        },
+        {
+          "startTime": 26843.800000000745,
+          "duration": 700
+        },
+        {
+          "startTime": 27544.700000001118,
+          "duration": 1742
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 2978.9000000003725,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 254.09999999776483,
+          "baseDuration": 231.2000000011176,
+          "startTime": 29861.800000000745,
+          "commitTime": 30201.700000001118
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 29830.10000000149,
+          "duration": 2380
+        },
+        {
+          "startTime": 32210.60000000149,
+          "duration": 629
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 0,
+      "elapsedMs": 370.09999999962747,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1.699999999254942,
+          "baseDuration": 231.2000000011176,
+          "startTime": 34803.40000000037,
+          "commitTime": 34808
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 34678.300000000745,
+          "duration": 121
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 3798.7000000011176,
+      "apiMs": 11.199999999254942,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 1,
+          "baseDuration": 1.3999999985098839,
+          "startTime": 35424.90000000037,
+          "commitTime": 35425.90000000037
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.900000000372529,
+          "baseDuration": 1.299999998882413,
+          "startTime": 35901.70000000112,
+          "commitTime": 35902.70000000112
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 437.6000000014901,
+          "baseDuration": 134.29999999143183,
+          "startTime": 35931.10000000149,
+          "commitTime": 36416.20000000112
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 35410.5,
+          "duration": 227
+        },
+        {
+          "startTime": 35930.90000000037,
+          "duration": 679
+        },
+        {
+          "startTime": 36610.40000000037,
+          "duration": 2612
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 2185.7000000011176,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 118.20000000670552,
+          "baseDuration": 103.29999999888241,
+          "startTime": 39658,
+          "commitTime": 39822.60000000149
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 39627.300000000745,
+          "duration": 1739
+        },
+        {
+          "startTime": 41367.10000000149,
+          "duration": 475
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 1,
+      "elapsedMs": 365.09999999962747,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 8.50000000745058,
+          "baseDuration": 103.29999999888241,
+          "startTime": 43391.800000000745,
+          "commitTime": 43407.800000000745
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 3413.5,
+      "apiMs": 13.200000001117587,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.599999999627471,
+          "baseDuration": 0.9999999981373549,
+          "startTime": 44286.800000000745,
+          "commitTime": 44287.60000000149
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.5,
+          "baseDuration": 0.8999999985098839,
+          "startTime": 44796.10000000149,
+          "commitTime": 44796.70000000112
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 513.3000000100583,
+          "baseDuration": 180.59999998100102,
+          "startTime": 44845.5,
+          "commitTime": 45408.60000000149
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 44284,
+          "duration": 235
+        },
+        {
+          "startTime": 44845.10000000149,
+          "duration": 706
+        },
+        {
+          "startTime": 45551.90000000037,
+          "duration": 2147
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 2854.9000000003725,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 184.60000000707805,
+          "baseDuration": 164.30000000819564,
+          "startTime": 48553,
+          "commitTime": 48805.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 48526.90000000037,
+          "duration": 2402
+        },
+        {
+          "startTime": 50929.90000000037,
+          "duration": 477
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 2,
+      "elapsedMs": 510.2999999988824,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 7.700000010430813,
+          "baseDuration": 164.4000000078231,
+          "startTime": 53184.300000000745,
+          "commitTime": 53201.800000000745
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 53021.60000000149,
+          "duration": 149
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 4017.199999999255,
+      "apiMs": 11.600000001490116,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.7000000011175871,
+          "baseDuration": 1.099999999627471,
+          "startTime": 53777.40000000037,
+          "commitTime": 53778.20000000112
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.6000000014901161,
+          "baseDuration": 1,
+          "startTime": 54284,
+          "commitTime": 54285
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 474.5999999977648,
+          "baseDuration": 146.10000001080334,
+          "startTime": 54313.40000000037,
+          "commitTime": 54841.70000000112
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 53762.10000000149,
+          "duration": 269
+        },
+        {
+          "startTime": 54313.20000000112,
+          "duration": 834
+        },
+        {
+          "startTime": 55148,
+          "duration": 2645
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 2914,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 107.79999999888241,
+          "baseDuration": 62.99999999254942,
+          "startTime": 58108.10000000149,
+          "commitTime": 58240.5
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 58083.90000000037,
+          "duration": 2401
+        },
+        {
+          "startTime": 60485.90000000037,
+          "duration": 535
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 3,
+      "elapsedMs": 204.59999999962747,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.600000001490116,
+          "baseDuration": 63.099999994039536,
+          "startTime": 62235.60000000149,
+          "commitTime": 62242.10000000149
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 2383.4000000003725,
+      "apiMs": 22.700000001117587,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.30000000074505806,
+          "baseDuration": 0.6999999992549419,
+          "startTime": 62593.40000000037,
+          "commitTime": 62593.70000000112
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.599999999627471,
+          "baseDuration": 0.9999999981373549,
+          "startTime": 62967.300000000745,
+          "commitTime": 62968
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 180.80000001378357,
+          "baseDuration": 70.40000000409782,
+          "startTime": 63006.300000000745,
+          "commitTime": 63206.60000000149
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 62592.60000000149,
+          "duration": 98
+        },
+        {
+          "startTime": 63006.300000000745,
+          "duration": 293
+        },
+        {
+          "startTime": 63299.40000000037,
+          "duration": 1676
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 3080.9000000003725,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 236.8999999910593,
+          "baseDuration": 198.79999998025596,
+          "startTime": 65508.90000000037,
+          "commitTime": 65811
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 65459.40000000037,
+          "duration": 2447
+        },
+        {
+          "startTime": 67907.30000000075,
+          "duration": 678
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 4,
+      "elapsedMs": 255.09999999962747,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 4.700000002980232,
+          "baseDuration": 198.79999998025596,
+          "startTime": 70379.70000000112,
+          "commitTime": 70391.40000000037
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 3082.300000000745,
+      "apiMs": 13.599999999627471,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.2000000011175871,
+          "baseDuration": 0.599999999627471,
+          "startTime": 71119.5,
+          "commitTime": 71119.70000000112
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.8000000007450581,
+          "baseDuration": 1.199999999254942,
+          "startTime": 71603,
+          "commitTime": 71603.80000000075
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 422.9999999925494,
+          "baseDuration": 147.40000003762543,
+          "startTime": 71640.70000000112,
+          "commitTime": 72110.60000000149
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 71113,
+          "duration": 211
+        },
+        {
+          "startTime": 71640.30000000075,
+          "duration": 573
+        },
+        {
+          "startTime": 72213.60000000149,
+          "duration": 1986
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 3104.2999999988824,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 222.1000000089407,
+          "baseDuration": 177.70000000298023,
+          "startTime": 74919.90000000037,
+          "commitTime": 75205.60000000149
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 74874.5,
+          "duration": 2392
+        },
+        {
+          "startTime": 77267.60000000149,
+          "duration": 755
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 5,
+      "elapsedMs": 288.69999999925494,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.400000000372529,
+          "baseDuration": 177.70000000298023,
+          "startTime": 79753.80000000075,
+          "commitTime": 79759.40000000037
+        }
+      ],
+      "longTasks": []
+    },
+    {
+      "scenario": "synthetic-search",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 3419.9000000003725,
+      "apiMs": 12.699999999254942,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0,
+          "baseDuration": 0.3999999985098839,
+          "startTime": 80561.5,
+          "commitTime": 80561.60000000149
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 0.09999999962747097,
+          "baseDuration": 0.49999999813735485,
+          "startTime": 81121.20000000112,
+          "commitTime": 81121.30000000075
+        },
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 443.59999999403954,
+          "baseDuration": 167.90000002086163,
+          "startTime": 81156.10000000149,
+          "commitTime": 81639.30000000075
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 80559.80000000075,
+          "duration": 293
+        },
+        {
+          "startTime": 81155.90000000037,
+          "duration": 624
+        },
+        {
+          "startTime": 81780.40000000037,
+          "duration": 2199
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-sort",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 2951.300000000745,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 183.09999999776483,
+          "baseDuration": 172.29999998398125,
+          "startTime": 84386.80000000075,
+          "commitTime": 84612.70000000112
+        }
+      ],
+      "longTasks": [
+        {
+          "startTime": 84357.5,
+          "duration": 2309
+        },
+        {
+          "startTime": 86667.40000000037,
+          "duration": 669
+        }
+      ]
+    },
+    {
+      "scenario": "synthetic-watchlist",
+      "rows": 3000,
+      "cpuRate": 4,
+      "iteration": 6,
+      "elapsedMs": 165.69999999925494,
+      "apiMs": null,
+      "domElements": 33063,
+      "renderedRows": 3000,
+      "profiles": [
+        {
+          "id": "stock-dashboard",
+          "phase": "update",
+          "actualDuration": 2.2000000029802322,
+          "baseDuration": 172.39999998360872,
+          "startTime": 89159.20000000112,
+          "commitTime": 89164.20000000112
+        }
+      ],
+      "longTasks": []
+    }
+  ]
+}
