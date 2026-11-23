@@ -26,7 +26,8 @@ FROM base AS api
 ENV NODE_ENV=production API_HOST=0.0.0.0 PORT=4000
 COPY --from=api-dependencies --chown=node:node /app/node_modules ./node_modules
 COPY --from=api-build --chown=node:node /app/apps/api/dist ./apps/api/dist
-COPY --from=api-build --chown=node:node /app/apps/api/package.json ./apps/api/package.json
+# npm workspaces may install runtime packages locally instead of hoisting them.
+COPY --from=api-dependencies --chown=node:node /app/apps/api ./apps/api
 COPY --from=api-build --chown=node:node /app/packages/shared/dist ./packages/shared/dist
 COPY --from=api-build --chown=node:node /app/packages/shared/package.json ./packages/shared/package.json
 USER node

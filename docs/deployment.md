@@ -68,3 +68,7 @@ NEXT_PUBLIC_API_BASE_URL은 공개 설정이며 비밀값을 넣지 않는다. D
 - [Next standalone 산출물·모노레포 추적 경로](https://nextjs.org/docs/app/api-reference/config/next-config-js/output)
 - [Docker Compose healthcheck 기반 시작 순서](https://docs.docker.com/compose/how-tos/startup-order/)
 - [Vercel 모노레포 Root Directory 설정](https://vercel.com/docs/monorepos)
+
+## 리뷰 반영
+
+최초 자동 리뷰에서 API runtime 이미지가 루트 node_modules만 포함해 workspace 내부 NestJS 운영 의존성을 빠뜨리는 문제가 확인되었다. lockfile의 apps/api/node_modules 설치 경로와 대조한 후 production install 단계의 apps/api 디렉터리도 복사하도록 수정했다. 개발 의존성을 복사하는 대신 --omit=dev로 설치한 결과만 사용한다. 실제 이미지 시작·healthcheck·WebSocket 검증은 Docker CI가 담당한다.
