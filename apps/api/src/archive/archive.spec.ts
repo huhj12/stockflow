@@ -127,4 +127,27 @@ describe('private daily archive', () => {
       ),
     ).rejects.toThrow('KIS request failed');
   });
+  it('spaces failed token issuance retries at least one second apart', async () => {
+    let now = Date.now();
+    const clock = vi.spyOn(Date, 'now').mockImplementation(() => now);
+    const calls: number[] = [];
+    const request: typeof fetch = async () => {
+      calls.push(now);
+      return new Response(JSON.stringify({ error: 'fixture failure' }));
+    };
+    const client = new KisClient('key', 'secret', request, async (delay) => {
+      now += delay;
+    });
+    try {
+      await expect(
+        client.daily('005930', '2026-11-01', '2026-11-25'),
+      ).rejects.toThrow('Invalid KIS token response');
+      await expect(
+        client.daily('005930', '2026-11-01', '2026-11-25'),
+      ).rejects.toThrow('Invalid KIS token response');
+      expect(calls[1] - calls[0]).toBeGreaterThanOrEqual(1000);
+    } finally {
+      clock.mockRestore();
+    }
+  });
 });

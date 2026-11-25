@@ -64,18 +64,30 @@ export class KisClient implements DailyProvider {
   private token?: { value: string; expires: number };
   private tokenRequest?: Promise<string>;
   private lastRequest = 0;
+  private lastTokenRequest = 0;
   constructor(
     private readonly key: string,
     private readonly secret: string,
     private readonly request: typeof fetch = fetch,
+    private readonly wait: (delay: number) => Promise<void> = async (delay) => {
+      await sleep(delay);
+    },
   ) {
     if (!key || !secret)
       throw new Error('KIS_APP_KEY and KIS_APP_SECRET are required');
   }
   private async json(path: string, init: RequestInit) {
     // Serial collector calls leave ample headroom below the production 18 TPS ceiling.
-    await sleep(Math.max(0, 250 - (Date.now() - this.lastRequest)));
+    const isToken = path === '/oauth2/tokenP';
+    await this.wait(
+      Math.max(
+        0,
+        250 - (Date.now() - this.lastRequest),
+        isToken ? 1000 - (Date.now() - this.lastTokenRequest) : 0,
+      ),
+    );
     this.lastRequest = Date.now();
+    if (isToken) this.lastTokenRequest = this.lastRequest;
     let response: Response;
     try {
       response = await this.request(
