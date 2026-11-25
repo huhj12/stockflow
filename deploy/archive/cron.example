@@ -1,0 +1,6 @@
+# Example only. Install after the live read-only smoke passes.
+# crontab schedule follows the host timezone; example assumes host TZ=Asia/Seoul.
+# A UTC host uses 10:10 for the same Seoul 19:10 schedule.
+# 10 19 * * 1-5 /absolute/path/stockflow/deploy/archive/collect.sh >> /private/log/path/stockflow-archive.log 2>&1
+# Optional daily catch-up covers missed weekday runs and repeats recent dates safely.
+# Do not install both schedules until the workload and account limit are verified.

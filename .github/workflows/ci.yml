@@ -20,6 +20,18 @@ jobs:
     timeout-minutes: 20
     env:
       NEXT_TELEMETRY_DISABLED: '1'
+      ARCHIVE_TEST_DATABASE_URL: postgresql://stockflow_test:fixture-only@127.0.0.1:5432/stockflow_archive_test
+    services:
+      archive-postgres:
+        image: postgres:17-bookworm
+        env:
+          POSTGRES_DB: stockflow_archive_test
+          POSTGRES_USER: stockflow_test
+          POSTGRES_PASSWORD: fixture-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U stockflow_test -d stockflow_archive_test"
+          --health-interval 3s --health-timeout 3s --health-retries 20
     steps:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -43,6 +55,8 @@ jobs:
         run: npm run typecheck
       - name: Run API integration tests
         run: npm test
+      - name: Verify private PostgreSQL archive and Swagger
+        run: npm run test:archive
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Run browser E2E
