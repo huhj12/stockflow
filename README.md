@@ -129,3 +129,5 @@ Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait 
 ## DAY 15 개인용 DB 아카이브와 Swagger
 
 한투 KRX 일봉을 개인용 PostgreSQL에 중복 없이 저장하는 수집기와 보호된 `/api/archive` 조회·`/api/docs` Swagger를 추가했다. 기존 Mock 화면은 유지한다. 별도 Compose 실행·키 입력·cron·백업 전제와 검증 방법은 [개인용 아카이브](docs/private-data-archive.md)를 따른다. 실제 키 수집과 cron 등록은 한 종목 읽기 전용 검증 후 진행한다.
+
+DAY 15 개인 서버에서 삼성전자 실제 KIS 일봉 60개 저장·중복 재수집을 검증하고 매일 KST 19:10 cron을 활성화했다. [실수집 검증과 운영 경로](docs/day15-live-verification.md)를 참고한다.

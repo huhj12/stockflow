@@ -105,4 +105,4 @@ DAY 6는 브라우저의 localStorage에 종목코드 배열과 갱신 시각을
 
 ## DAY 15 개인용 일봉 저장
 
-ENABLE_PRIVATE_ARCHIVE=1에서만 별도 PostgreSQL 기반 /api/archive 및 /api/docs를 제공한다. 인증은 StockFlow 전용 HTTP Basic이고 한투 키는 서버의 수집 명령에만 사용한다. 일봉 출처 kis/fixture, KRX, 원주가와 거래일을 명시한다. 최신 종가 조회는 실시간 StockQuote를 사칭하지 않는다. 기존 /api/stocks와 WS는 Mock을 유지한다. 수집은 최근 90일 재조회·구간별 트랜잭션·중복 upsert·중복 실행 잠금·실행 결과 기록을 제공한다. 실키·cron 활성화·종목 마스터 및 휴장일 자동 수집은 후속 검증 범위이며 docs/private-data-archive.md의 계약을 따른다.
+ENABLE_PRIVATE_ARCHIVE=1에서만 별도 PostgreSQL 기반 /api/archive 및 /api/docs를 제공한다. 인증은 StockFlow 전용 HTTP Basic이고 한투 키는 서버의 수집 명령에만 사용한다. 일봉 출처 kis/fixture, KRX, 원주가와 거래일을 명시한다. 최신 종가 조회는 실시간 StockQuote를 사칭하지 않는다. 기존 /api/stocks와 WS는 Mock을 유지한다. 수집은 최근 90일 재조회·구간별 트랜잭션·중복 upsert·중복 실행 잠금·실행 결과 기록을 제공한다. 실키 기반 삼성전자 일봉 60개 수집·반복 저장·매일 KST 19:10 cron을 검증했다. 운영 현황은 docs/day15-live-verification.md를 따른다. 종목 마스터 및 휴장일 자동 수집은 후속 범위이며 docs/private-data-archive.md의 계약을 따른다.
