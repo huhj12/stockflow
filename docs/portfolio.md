@@ -24,3 +24,9 @@ localStorage 키는 stockflow.portfolio.v1이며 { version: 1, holdings: Holding
 ## 검증 범위
 
 모델 단위 테스트는 평가식, 앞자리 0, 입력 범위, 손상·미지원 버전, 누락·안전 정수 초과를 확인한다. 스토어 테스트는 저장 실패 후 여러 편집 복구와 외부 탭 변경 병합을 포함한다. Chromium E2E는 모바일 CRUD·새로고침·입력 오류·가격 재시도·저장 장애·손상 데이터·미지원 버전·두 탭 동시 저장과 삭제를 검증한다. 실제 Safari·Firefox 및 계정 동기화는 이번 검증 범위가 아니다.
+
+## DAY 14 변경
+
+위 DAY 13의 고정 가격 평가를 실시간 Mock 평가로 확장했다. 고정 REST 가격은 연결 전 기준값이다. 종목별 WebSocket을 최대 30개 사용하고 보유 코드 집합이 바뀐 경우에만 해당 구독을 추가·제거한다. 수량 수정과 다른 종목 tick은 기존 연결을 유지한다. 마지막 수신 가격은 연결 중단 동안 보존하며 행별 상태·수신 시각을 표시한다. 모든 연결·watchdog·재시도 타이머는 화면 이탈 시 해제한다. 상세 화면도 동일한 구독 구현을 사용한다. 실제 증권사 연동에서는 서버 측 공유 구독·팬아웃으로 별도 설계해야 한다.
+
+E2E 기본 포트는 웹 3000·API 4000이다. 기존 서버와 충돌하면 PowerShell에서 `$env:NEXT_PUBLIC_API_BASE_URL="http://localhost:4200/api"; npm run build` 후 `$env:PLAYWRIGHT_WEB_PORT="3200"; $env:PLAYWRIGHT_API_PORT="4200"; npm run test:e2e`로 별도 포트를 사용한다. 브라우저 API URL은 빌드 시 결정되므로 포트를 맞춰 빌드해야 한다. 일반 실행 복귀 시 해당 환경 변수를 제거하고 다시 빌드한다.

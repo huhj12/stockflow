@@ -34,6 +34,7 @@ export function StockDetail({ code }: { code: string }) {
   const live = useLiveQuote(code, detail.isSuccess);
   const quote = live?.message?.quote ?? detail.data?.quote;
   const liveLabel = {
+    connecting: '모의 시세 연결 중',
     live: '모의 시세 연결됨',
     reconnecting: '모의 시세 재연결 중',
     offline: '모의 시세 연결 종료',
