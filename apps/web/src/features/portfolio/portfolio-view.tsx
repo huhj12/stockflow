@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useState } from 'react';
 import { fetchStocks } from '../stocks/api/fetch-stocks';
+import { usePortfolioQuotes } from './use-portfolio-quotes';
 import { PortfolioForm } from './portfolio-form';
 import { valuePortfolio } from './portfolio-model';
 import { useLoadPortfolio, usePortfolio } from './portfolio-store';
@@ -42,7 +43,18 @@ export function PortfolioView() {
     retry: false,
   });
   const stocks = catalog.isError ? [] : (catalog.data?.items ?? []);
-  const valuation = valuePortfolio(holdings, stocks);
+  const live = usePortfolioQuotes(
+    holdings
+      .filter((holding) =>
+        stocks.some((stock) => stock.code === holding.stockCode),
+      )
+      .map((holding) => holding.stockCode),
+  );
+  const pricedStocks = stocks.map((stock) => ({
+    ...stock,
+    price: live[stock.code]?.message?.quote.price ?? stock.price,
+  }));
+  const valuation = valuePortfolio(holdings, pricedStocks);
 
   async function save(holding: Holding) {
     setBusy(true);
@@ -165,6 +177,16 @@ export function PortfolioView() {
         aria-labelledby="portfolio-summary-heading"
       >
         <h2 id="portfolio-summary-heading">Mock 평가 요약</h2>
+        <p role="status" aria-label="포트폴리오 시세 연결 상태">
+          {holdings.length === 0
+            ? '구독할 보유 종목이 없습니다.'
+            : '연결됨 ' +
+              holdings.filter((h) => live[h.stockCode]?.status === 'live')
+                .length +
+              ' / ' +
+              holdings.length +
+              '종목 · 연결 전에는 고정 Mock 가격, 연결이 끊기면 마지막 수신 가격을 유지합니다.'}
+        </p>
         <dl className="stock-metrics">
           <div>
             <dt>총 매입금액</dt>
@@ -187,7 +209,7 @@ export function PortfolioView() {
             </dd>
           </div>
         </dl>
-        <p>고정 Mock 가격 기준이며 수수료·세금·배당은 반영하지 않습니다.</p>
+        <p>실시간 Mock 가격 기준이며 수수료·세금·배당은 반영하지 않습니다.</p>
         {holdings.length > 0 && catalog.isSuccess && !valuation.complete && (
           <p role="alert">
             가격을 확인할 수 없거나 계산 범위를 초과한 종목이 있어 합계
@@ -211,7 +233,7 @@ export function PortfolioView() {
           >
             <table className="portfolio-table">
               <caption className="sr-only">
-                가상 보유 종목과 고정 Mock 가격 평가
+                가상 보유 종목과 실시간 Mock 가격 평가
               </caption>
               <thead>
                 <tr>
@@ -229,6 +251,7 @@ export function PortfolioView() {
                 {valuation.lines.map((line) => {
                   const name = line.stock?.name ?? line.holding.stockCode;
                   const price = line.stock?.price;
+                  const stream = live[line.holding.stockCode];
                   return (
                     <tr key={line.holding.stockCode}>
                       <th scope="row">
@@ -249,6 +272,25 @@ export function PortfolioView() {
                         price > 0
                           ? money(price)
                           : '—'}
+                        <p>
+                          {stream?.status === 'live'
+                            ? 'Mock 연결됨'
+                            : stream?.status === 'reconnecting'
+                              ? '재연결 중 · ' +
+                                (stream.message ? '마지막 가격' : '고정 가격')
+                              : stream?.status === 'offline'
+                                ? '연결 종료 · ' +
+                                  (stream.message ? '마지막 가격' : '고정 가격')
+                                : '연결 대기 · 고정 가격'}
+                        </p>
+                        {stream?.receivedAt && (
+                          <p>
+                            수신{' '}
+                            {new Date(stream.receivedAt).toLocaleTimeString(
+                              'ko-KR',
+                            )}
+                          </p>
+                        )}
                       </td>
                       <td>{money(line.value)}</td>
                       <td>

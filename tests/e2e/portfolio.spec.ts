@@ -1,5 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
 import type { Holding } from '@stockflow/shared';
+test.beforeEach(async ({ page }) => {
+  await page.routeWebSocket('**/ws/quotes?*', () => {});
+});
 const key = 'stockflow.portfolio.v1';
 const number = new Intl.NumberFormat('ko-KR');
 const signed = new Intl.NumberFormat('ko-KR', { signDisplay: 'exceptZero' });
@@ -43,7 +46,7 @@ test('adds, edits and removes a persisted holding with Mock valuation on mobile'
   request,
 }) => {
   const response = await request.get(
-    'http://localhost:4000/api/stocks/005930/quote',
+    `http://localhost:${process.env.PLAYWRIGHT_API_PORT ?? 4000}/api/stocks/005930/quote`,
   );
   const { price } = await response.json();
   await page.setViewportSize({ width: 375, height: 812 });

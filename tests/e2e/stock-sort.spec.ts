@@ -6,7 +6,7 @@ test('sorts the filtered market numerically and retains the selected sort', asyn
   request,
 }) => {
   const response = await request.get(
-    'http://localhost:4000/api/stocks?market=KOSPI',
+    `http://localhost:${process.env.PLAYWRIGHT_API_PORT ?? 4000}/api/stocks?market=KOSPI`,
   );
   expect(response.ok()).toBeTruthy();
   const { items } = (await response.json()) as { items: StockListItem[] };

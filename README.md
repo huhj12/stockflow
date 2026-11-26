@@ -121,3 +121,7 @@ Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait 
 ## DAY 13 가상 포트폴리오
 
 검색 화면의 가상 포트폴리오 링크 또는 `/portfolio`에서 보유 종목·수량·평균 매수가를 등록·수정·삭제한다. `npm run dev`로 실행하며 기존 Node.js 요구 버전을 사용한다. 같은 브라우저의 localStorage에 저장하고 고정 Mock 현재가로 평가금액·미실현 손익을 계산한다. 실제 계좌·주문·실시간 평가 기능은 아니다. 저장 실패·누락 가격 처리와 입력 제한은 [포트폴리오 계약](docs/portfolio.md)을 참고한다.
+
+## DAY 14 포트폴리오 실시간 Mock 평가
+
+보유 종목의 Mock WebSocket 가격으로 평가금액·손익·수익률을 갱신한다. 연결 전에는 고정 가격, 끊긴 후에는 마지막 수신 가격을 표시하고 연결 상태와 수신 시각을 안내한다. 종목 삭제·화면 이탈 시 구독을 해제한다. 실제 거래소 시세는 제공하지 않는다. [실데이터 API 조사](docs/market-data-api-research.md)에 KIS·키움 REST·LS 후보와 후속 연동 조건을 정리했다.
