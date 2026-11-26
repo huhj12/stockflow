@@ -1,0 +1,51 @@
+# Independent personal archive. Start only on a trusted host; all ports bind loopback.
+services:
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_DB: stockflow_archive
+      POSTGRES_USER: stockflow
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}
+    ports:
+      - '127.0.0.1:${ARCHIVE_DB_PORT:-55432}:5432'
+    volumes:
+      - archive-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U stockflow -d stockflow_archive']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+  private-api:
+    build:
+      context: .
+      target: api
+    environment:
+      ENABLE_PRIVATE_ARCHIVE: '1'
+      DATABASE_URL: postgresql://stockflow:${POSTGRES_PASSWORD}@db:5432/stockflow_archive
+      PRIVATE_API_PASSWORD: ${PRIVATE_API_PASSWORD:?Set PRIVATE_API_PASSWORD}
+    ports:
+      - '127.0.0.1:${ARCHIVE_API_PORT:-4400}:4000'
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+  collector:
+    profiles: ['jobs']
+    build:
+      context: .
+      target: api
+    environment:
+      DATABASE_URL: postgresql://stockflow:${POSTGRES_PASSWORD}@db:5432/stockflow_archive
+      KIS_ENV: prod
+      KIS_APP_KEY: ${KIS_APP_KEY:-}
+      KIS_APP_SECRET: ${KIS_APP_SECRET:-}
+      ARCHIVE_CODES: ${ARCHIVE_CODES:-005930}
+      ARCHIVE_FROM: ${ARCHIVE_FROM:-}
+      ARCHIVE_TO: ${ARCHIVE_TO:-}
+    command: ['node', 'apps/api/dist/archive/cli.js', 'collect']
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  archive-db:

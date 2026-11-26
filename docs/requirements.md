@@ -102,3 +102,7 @@ DAY 6는 브라우저의 localStorage에 종목코드 배열과 갱신 시각을
 ## DAY 14 실시간 Mock 평가
 
 포트폴리오는 등록된 보유 종목만 기존 WS /ws/quotes?code= 계약으로 구독한다. 최대 30개 연결이며 수량·매수가 수정으로 재연결하지 않는다. 종목별 snapshot/sequence/session 검증을 상세 화면과 공유한다. 8초 무응답이면 재연결하며 마지막 가격을 유지한다. 정책 종료(1008)는 재시도하지 않는다. 연결 전 고정 Mock 가격과 연결 중단 시 마지막 수신 가격을 구분한다. 수신 시각은 브라우저 수신 시각이며 Mock 일봉 시각과 다르다. 가격은 영속화하지 않는다. 실데이터 조사 결과는 market-data-api-research.md를 참고한다.
+
+## DAY 15 개인용 일봉 저장
+
+ENABLE_PRIVATE_ARCHIVE=1에서만 별도 PostgreSQL 기반 /api/archive 및 /api/docs를 제공한다. 인증은 StockFlow 전용 HTTP Basic이고 한투 키는 서버의 수집 명령에만 사용한다. 일봉 출처 kis/fixture, KRX, 원주가와 거래일을 명시한다. 최신 종가 조회는 실시간 StockQuote를 사칭하지 않는다. 기존 /api/stocks와 WS는 Mock을 유지한다. 수집은 최근 90일 재조회·구간별 트랜잭션·중복 upsert·중복 실행 잠금·실행 결과 기록을 제공한다. 실키 기반 삼성전자 일봉 60개 수집·반복 저장·매일 KST 19:10 cron을 검증했다. 운영 현황은 docs/day15-live-verification.md를 따른다. 종목 마스터 및 휴장일 자동 수집은 후속 범위이며 docs/private-data-archive.md의 계약을 따른다.

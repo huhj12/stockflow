@@ -125,3 +125,9 @@ Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait 
 ## DAY 14 포트폴리오 실시간 Mock 평가
 
 보유 종목의 Mock WebSocket 가격으로 평가금액·손익·수익률을 갱신한다. 연결 전에는 고정 가격, 끊긴 후에는 마지막 수신 가격을 표시하고 연결 상태와 수신 시각을 안내한다. 종목 삭제·화면 이탈 시 구독을 해제한다. 실제 거래소 시세는 제공하지 않는다. [실데이터 API 조사](docs/market-data-api-research.md)에 KIS·키움 REST·LS 후보와 후속 연동 조건을 정리했다.
+
+## DAY 15 개인용 DB 아카이브와 Swagger
+
+한투 KRX 일봉을 개인용 PostgreSQL에 중복 없이 저장하는 수집기와 보호된 `/api/archive` 조회·`/api/docs` Swagger를 추가했다. 기존 Mock 화면은 유지한다. 별도 Compose 실행·키 입력·cron·백업 전제와 검증 방법은 [개인용 아카이브](docs/private-data-archive.md)를 따른다. 실제 키 수집과 cron 등록은 한 종목 읽기 전용 검증 후 진행한다.
+
+DAY 15 개인 서버에서 삼성전자 실제 KIS 일봉 60개 저장·중복 재수집을 검증하고 매일 KST 19:10 cron을 활성화했다. [실수집 검증과 운영 경로](docs/day15-live-verification.md)를 참고한다.
