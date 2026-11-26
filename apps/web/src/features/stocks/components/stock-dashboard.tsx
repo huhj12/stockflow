@@ -96,6 +96,10 @@ export function StockDashboard() {
         <Link className="stock-link" href="/watchlist">
           관심종목 보기
         </Link>
+        <span aria-hidden="true"> · </span>
+        <Link className="stock-link" href="/portfolio">
+          가상 포트폴리오
+        </Link>
       </p>
       <p role="status">
         {loading

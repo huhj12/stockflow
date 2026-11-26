@@ -19,10 +19,12 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "bench:build": "node scripts/build-performance.mjs",
-    "bench:stocks": "node scripts/benchmark-stock-search.mjs"
+    "bench:stocks": "node scripts/benchmark-stock-search.mjs",
+    "test:archive": "node scripts/test-archive.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@nestjs/platform-express": "12.3.3",
     "@playwright/test": "^1.56.0",
     "@types/node": "^24.0.0",
     "concurrently": "^9.0.0",

@@ -117,3 +117,17 @@ Docker가 실행 중인 환경에서 `docker compose up --build --detach --wait 
 100개를 초과하는 목록은 TanStack Virtual로 화면 주변 행만 렌더링한다. 기존 30종목 Mock 목록은 전체 표를 유지한다. 키보드 이동·포커스 보존과 전체 목록 표시 전환을 제공하며, 대량 데이터는 테스트·계측 브라우저에만 주입한다.
 
 [구현 결정과 전후 비교](docs/performance/day12-virtualization.md)에 원본 데이터를 보관했다. 동일 조건에서 합성 3,000행 기본 CPU 정렬 p50은 933.1ms → 23.5ms, 해당 DOM 수는 33,063개 → 221개였다. 실제 30종목 검색은 311.9ms → 312.1ms로 큰 차이가 없었다. 운영 SLA나 실제 모바일의 개선율로 해석하지 않는다.
+
+## DAY 13 가상 포트폴리오
+
+검색 화면의 가상 포트폴리오 링크 또는 `/portfolio`에서 보유 종목·수량·평균 매수가를 등록·수정·삭제한다. `npm run dev`로 실행하며 기존 Node.js 요구 버전을 사용한다. 같은 브라우저의 localStorage에 저장하고 고정 Mock 현재가로 평가금액·미실현 손익을 계산한다. 실제 계좌·주문·실시간 평가 기능은 아니다. 저장 실패·누락 가격 처리와 입력 제한은 [포트폴리오 계약](docs/portfolio.md)을 참고한다.
+
+## DAY 14 포트폴리오 실시간 Mock 평가
+
+보유 종목의 Mock WebSocket 가격으로 평가금액·손익·수익률을 갱신한다. 연결 전에는 고정 가격, 끊긴 후에는 마지막 수신 가격을 표시하고 연결 상태와 수신 시각을 안내한다. 종목 삭제·화면 이탈 시 구독을 해제한다. 실제 거래소 시세는 제공하지 않는다. [실데이터 API 조사](docs/market-data-api-research.md)에 KIS·키움 REST·LS 후보와 후속 연동 조건을 정리했다.
+
+## DAY 15 개인용 DB 아카이브와 Swagger
+
+한투 KRX 일봉을 개인용 PostgreSQL에 중복 없이 저장하는 수집기와 보호된 `/api/archive` 조회·`/api/docs` Swagger를 추가했다. 기존 Mock 화면은 유지한다. 별도 Compose 실행·키 입력·cron·백업 전제와 검증 방법은 [개인용 아카이브](docs/private-data-archive.md)를 따른다. 실제 키 수집과 cron 등록은 한 종목 읽기 전용 검증 후 진행한다.
+
+DAY 15 개인 서버에서 삼성전자 실제 KIS 일봉 60개 저장·중복 재수집을 검증하고 매일 KST 19:10 cron을 활성화했다. [실수집 검증과 운영 경로](docs/day15-live-verification.md)를 참고한다.

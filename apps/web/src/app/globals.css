@@ -245,3 +245,43 @@ button.watchlist-button:disabled {
   white-space: normal;
   text-overflow: clip;
 }
+
+.portfolio-form fieldset {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+.portfolio-form label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.portfolio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.portfolio-form [role='alert'],
+.portfolio-error,
+.portfolio-notice p {
+  color: #ffb6ae;
+}
+.portfolio-notice {
+  margin-top: 24px;
+}
+.stock-table-scroll .portfolio-table {
+  min-width: 1100px;
+}
+.portfolio-table p {
+  margin: 4px 0 0;
+  font-size: 0.875rem;
+}
+@media (max-width: 640px) {
+  .portfolio-form fieldset {
+    grid-template-columns: 1fr;
+  }
+}
