@@ -20,7 +20,8 @@
     "test:e2e": "playwright test",
     "bench:build": "node scripts/build-performance.mjs",
     "bench:stocks": "node scripts/benchmark-stock-search.mjs",
-    "test:archive": "node scripts/test-archive.mjs"
+    "test:archive": "node scripts/test-archive.mjs",
+    "test:backup": "bash deploy/archive/test-backup.sh"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
