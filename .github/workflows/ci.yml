@@ -57,6 +57,11 @@ jobs:
         run: npm test
       - name: Verify private PostgreSQL archive and Swagger
         run: npm run test:archive
+      - name: Verify database backup and disposable restore
+        env:
+          ARCHIVE_DB_CONTAINER: ${{ job.services['archive-postgres'].id }}
+          ARCHIVE_DB_USER: stockflow_test
+        run: npm run test:backup
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
       - name: Run browser E2E
